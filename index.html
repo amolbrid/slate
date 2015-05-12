@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Toro API Reference</title>
 
     <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -13,7 +13,7 @@
 
       <script>
         $(function() {
-          setupLanguages(["shell","ruby","python"]);
+          setupLanguages(["shell","ruby","scala"]);
         });
       </script>
   </head>
@@ -30,7 +30,7 @@
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="scala">scala</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -46,135 +46,350 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+        <h1 id="introduction">Introduction</h1>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>Introduction to Toro APIs</p>
 
-<p>This example API documentation page was created with <a href="http://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
+<h1 id="how-to-get-api-token">How to get API Token</h1>
+
+<p>API token is located on your profile page in UI.</p>
+
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>Example API call</p>
 </blockquote>
-<pre><code class="highlight ruby"><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
 </code></pre>
-<pre><code class="highlight python"><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre><code class="highlight shell"><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<pre><code class="highlight scala"><span class="c1">// scala code here
+</span></code></pre>
+<pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/json'</span>
+     -H <span class="s1">'Content-type: application/json'</span>
+     -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
+     <span class="s1">'https://toro.collective-media.net/api/advertisers'</span>
 </code></pre>
 
 <blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
+<p>Make sure to replace <code class="prettyprint">your_api_token</code> with your API token.</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<aside class="notice">
+You must replace `your_api_token` with your personal API token.
+</aside>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+          <h1 id="advertisers">Advertisers</h1>
 
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
-
-<p><aside class="notice">
-You must replace <code class="prettyprint">meowmeowmeow</code> with your personal API key.
-</aside></p>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre><code class="highlight ruby"><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
+<h2 id="get-all-advertisers">Get all advertisers</h2>
+<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
 </code></pre>
-<pre><code class="highlight python"><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre><code class="highlight shell">curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<pre><code class="highlight scala"><span class="c1">// scala code here
+</span></code></pre>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/advertisers'</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
 </code></pre>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Response</p>
 </blockquote>
 <pre><code class="highlight json"><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Christoph"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"testmode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inventory_tier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-04-22T12:51:32.464Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-04-22T12:51:32.464Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Isis"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yahoo!"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"testmode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inventory_tier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-07-22T17:32:34.164Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-07-22T17:32:34.164Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teleflora"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"testmode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inventory_tier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-07-23T14:46:03.243Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-07-23T14:46:03.243Z"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET http://example.com/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<p>List of the all advertisers.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET https://toro.collective-media.net/api/advertisers</code></p>
+
+<h3 id="response">Response</h3>
+
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Field</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>name</td>
+<td></td>
+<td>Name of the advertiser.</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>testmode</td>
+<td>false</td>
+<td>If set to false, advertiser will be only for testing purpose. This attribute can only be set by &lsquo;admin&rsquo; user.</td>
+</tr>
+<tr>
+<td>inventory_tier_id</td>
+<td></td>
+<td>Id of inventory package</td>
 </tr>
 </tbody></table>
 
-<p><aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside></p>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre><code class="highlight ruby"><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<h2 id="get-single-advertiser">Get single advertiser</h2>
+<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
 </code></pre>
-<pre><code class="highlight python"><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre><code class="highlight shell">curl <span class="s2">"http://example.com/api/kittens/3"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<pre><code class="highlight scala"><span class="c1">// scala code here
+</span></code></pre>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/advertisers/31'</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
 </code></pre>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above request returns:</p>
 </blockquote>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Isis"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yahoo!"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"testmode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"inventory_tier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-07-22T17:32:34.164Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-07-22T17:32:34.164Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves a specific kitten.</p>
+<p>Gets advertiser by id</p>
 
-<p><aside class="warning">If you&rsquo;re not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside></p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET https://toro.collective-media.net/api/advertisers/{advertiser_id}</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Name of the advertiser.</td>
+</tr>
+<tr>
+<td>testmode</td>
+<td>If set to false, advertiser will be only for testing purpose. This attribute can only be set by &#39;admin&rsquo; user.</td>
+</tr>
+<tr>
+<td>inventory_tier_id</td>
+<td>Id of inventory package</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-advertiser">Create advertiser</h2>
+<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
+</code></pre>
+<pre><code class="highlight scala"><span class="c1">// scala code here
+</span></code></pre>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/advertisers'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span> <span class="se">\</span>
+  -d <span class="s1">'{"name": "Test Advertiser"}'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">148</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Test Advertiser"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"testmode"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"inventory_tier_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2015-05-05T18:44:06.183Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2015-05-05T18:44:06.183Z"</span><span class="p">,</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<p>Creates advertiser.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">POST https://toro.collective-media.net/api/advertisers</code></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td></td>
+<td><strong>[Required]</strong> Name of the advertiser.</td>
+</tr>
+<tr>
+<td>testmode</td>
+<td>false</td>
+<td>If set to false, advertiser will be only for testing purpose. This attribute can only be set by &#39;admin&rsquo; user.</td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Name of the advertiser.</td>
+</tr>
+<tr>
+<td>testmode</td>
+<td>If set to false, advertiser will be only for testing purpose. This attribute can only be set by &#39;admin&rsquo; user.</td>
+</tr>
+<tr>
+<td>inventory_tier_id</td>
+<td>Id of inventory package</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-advertiser">Update advertiser</h2>
+<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
+</code></pre>
+<pre><code class="highlight scala"><span class="c1">// scala code here
+</span></code></pre>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/rtb_advertisers/32'</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span> <span class="se">\</span>
+  -d <span class="s1">'{name": "Test Advertiser"}'</span>
+</code></pre>
+
+<blockquote>
+<p>Updates advertiser name and returns 204 HTTP status code</p>
+</blockquote>
+
+<p>Updates advertiser.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">PUT https://toro.collective-media.net/api/advertisers/{:advertiser_id}</code></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td></td>
+<td><strong>[Required]</strong> Name of the advertiser.</td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<p>Returns empty response with 204 HTTP Status code.</p>
+
+          <h1 id="creatives">Creatives</h1>
+
+<h2 id="get-all-creatives">Get all creatives</h2>
+<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
+</code></pre>
+<pre><code class="highlight scala"><span class="c1">// scala code here
+</span></code></pre>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/creatives?advertiser_id=2'</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre><code class="highlight json"><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">112</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disney | 160x600 | 1.75"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160x600"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.75"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T17:30:25.732Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-28T15:40:28.980Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"iframe_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://a.collective-media.net/adi/cm.proga/1.75;sz=160x600;tgt=1.75${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_can_be_dissociate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rejected"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ssl_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creative does not display properly"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"appnexus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16822718"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"submitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rejected"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disney | 160x600 | disney_dmx_cpa"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160x600"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disney_dmx_cpa"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-27T18:35:11.837Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-28T15:34:50.403Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"iframe_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://a.collective-media.net/adi/cm.proga/disney_dmx_cpa;sz=160x600;tgt=disney_dmx_cpa${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_can_be_dissociate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"audited"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ssl_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"appnexus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13858137"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"submitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"audited"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>List all creatives for advertiser</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET https://toro.collective-media.net/api/creatives?advertiser_id={advertiser_id}</code></p>
+
+<h3 id="query-parameters">Query parameters</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -182,15 +397,158 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the cat to retrieve</td>
+<td>advertiser_id</td>
+<td><strong>[Required]</strong> Advertiser id.</td>
 </tr>
 </tbody></table>
 
-          <h1 id='errors'>Errors</h1>
-<p><aside class="notice">This error section is stored in a separate file in <code class="prettyprint">includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the <code class="prettyprint">includes</code> folder and add them to the top of your <code class="prettyprint">index.md</code>&rsquo;s frontmatter. Files are included in the order listed.</aside></p>
+<h3 id="response">Response</h3>
 
-<p>The Kittn API uses the following error codes:</p>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Creative id</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Name of the creative.</td>
+</tr>
+<tr>
+<td>size</td>
+<td>Creative size</td>
+</tr>
+<tr>
+<td>zone</td>
+<td>Zone associated with creative</td>
+</tr>
+</tbody></table>
+
+<h5 id="appnexus-fields">Appnexus Fields</h5>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Associated appnexus creative id</td>
+</tr>
+<tr>
+<td>submitted</td>
+<td>Creative submitted for audit</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Audited status of creative in appnexus</td>
+</tr>
+<tr>
+<td>expired</td>
+<td>Whether creative is expired</td>
+</tr>
+</tbody></table>
+
+<h5 id="audit-fields">Audit Fields</h5>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>Audit status of creative</td>
+</tr>
+<tr>
+<td>ssl_status</td>
+<td>SSL audit status of creative</td>
+</tr>
+<tr>
+<td>response</td>
+<td>Error message returned by Appnexus when audit fails.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-single-creative">Get single creative</h2>
+<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
+</code></pre>
+<pre><code class="highlight scala"><span class="c1">// scala code here
+</span></code></pre>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/creatives/234'</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
+</code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">234</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON Disney | 300x250 | dny_domcom_1_new"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"300x250"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dny_domcom_1_new"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-02T22:20:53.208Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-28T15:40:59.219Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"iframe_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://a.collective-media.net/adi/cm.proga/dny_domcom_1_new;sz=300x250;tgt=dny_domcom_1_new${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_can_be_dissociate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"audit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"audited"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ssl_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"appnexus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16943312"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"submitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"audited"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Gets creative by id</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET https://toro.collective-media.net/api/creatives/{creative_id}</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Creative id</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Name of the creative.</td>
+</tr>
+<tr>
+<td>size</td>
+<td>Creative size</td>
+</tr>
+<tr>
+<td>zone</td>
+<td>Zone associated with creative</td>
+</tr>
+</tbody></table>
+
+          <h1 id="errors">Errors</h1>
+
+<p>The Toro API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -215,32 +573,8 @@ Remember — a happy kitten is an authenticated kitten!
 <td>Not Found &ndash; The specified kitten could not be found</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slown down!</td>
-</tr>
-<tr>
 <td>500</td>
 <td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
 </tr>
 </tbody></table>
 
@@ -249,7 +583,7 @@ Remember — a happy kitten is an authenticated kitten!
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="scala">scala</a>
           </div>
       </div>
     </div>
