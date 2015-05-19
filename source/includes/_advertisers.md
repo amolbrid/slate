@@ -2,20 +2,20 @@
 
 ## Get all advertisers
 
-```ruby
-# ruby code here
-```
-
-```scala
-// scala code here
-```
-
 ```shell
 curl 'https://toro.collective-media.net/api/advertisers' \
   -X GET \
   -H 'Accept: application/json' \
   -H 'Content-type: application/json' \
   -H 'Authorization: Token token="your_api_token"'
+```
+
+```ruby
+# ruby code here
+```
+
+```scala
+// scala code here
 ```
 
 > Response
@@ -26,7 +26,6 @@ curl 'https://toro.collective-media.net/api/advertisers' \
     "id": 1,
     "name": "Christoph",
     "testmode": true,
-    "inventory_tier_id": 1,
     "created_at": "2013-04-22T12:51:32.464Z",
     "updated_at": "2013-04-22T12:51:32.464Z"
   },
@@ -34,7 +33,6 @@ curl 'https://toro.collective-media.net/api/advertisers' \
     "id": 3,
     "name": "Yahoo!",
     "testmode": false,
-    "inventory_tier_id": 1,
     "created_at": "2013-07-22T17:32:34.164Z",
     "updated_at": "2013-07-22T17:32:34.164Z"
   },
@@ -42,7 +40,6 @@ curl 'https://toro.collective-media.net/api/advertisers' \
     "id": 4,
     "name": "Teleflora",
     "testmode": false,
-    "inventory_tier_id": 1,
     "created_at": "2013-07-23T14:46:03.243Z",
     "updated_at": "2013-07-23T14:46:03.243Z"
   }
@@ -57,11 +54,11 @@ List of the all advertisers.
 
 ### Response
 
-Field | Default | Description
---------- | ------- | -----------
-name |  | Name of the advertiser.
-testmode | false | If set to false, advertiser will be only for testing purpose. This attribute can only be set by 'admin' user.
-inventory_tier_id | | Id of inventory package
+Field | Description
+--------- | -----------
+name | Name of the advertiser.
+testmode | True when advertiser is used for testing purpose. Otherwise false.
+
 
 ## Get single advertiser
 
@@ -88,7 +85,6 @@ curl 'https://toro.collective-media.net/api/advertisers/31' \
   "id": 3,
   "name": "Yahoo!",
   "testmode": false,
-  "inventory_tier_id": 1,
   "created_at": "2013-07-22T17:32:34.164Z",
   "updated_at": "2013-07-22T17:32:34.164Z"
 }
@@ -105,8 +101,7 @@ Gets advertiser by id
 Field | Description
 --------- | -----------
 name | Name of the advertiser.
-testmode | If set to false, advertiser will be only for testing purpose. This attribute can only be set by 'admin' user.
-inventory_tier_id | Id of inventory package
+testmode | True when advertiser is used for testing purpose. Otherwise false.
 
 
 ## Create advertiser
@@ -135,9 +130,8 @@ curl 'https://toro.collective-media.net/api/advertisers' \
   "id":148,
   "name":"Test Advertiser",
   "testmode":false,
-  "inventory_tier_id":1,
   "created_at":"2015-05-05T18:44:06.183Z",
-  "updated_at":"2015-05-05T18:44:06.183Z",
+  "updated_at":"2015-05-05T18:44:06.183Z"
 }
 ```
 
@@ -157,8 +151,8 @@ testmode | false | If set to false, advertiser will be only for testing purpose.
 Field | Description
 --------- | -----------
 name | Name of the advertiser.
-testmode | If set to false, advertiser will be only for testing purpose. This attribute can only be set by 'admin' user.
-inventory_tier_id | Id of inventory package
+testmode | True when advertiser is used for testing purpose. Otherwise false.
+
 
 ## Update advertiser
 
@@ -189,8 +183,12 @@ Updates advertiser.
 
 Field | Default | Description
 --------- | ------- | -----------
-name |  | **[Required]** Name of the advertiser.
+name |  | Name of the advertiser.
+testmode | false | If set to false, advertiser will be only for testing purpose. This attribute can only be set by 'admin' user.
 
 ### Response
 
-Returns empty response with 204 HTTP Status code.
+Field | Description
+--------- | -----------
+name | Name of the advertiser.
+testmode | True when advertiser is used for testing purpose. Otherwise false.
