@@ -39,45 +39,24 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
+        
+          <h1 id="introduction">Introduction</h1>
 
 <p>Introduction to Toro APIs</p>
 
-<h1 id="how-to-get-api-token">How to get API Token</h1>
+          <h2 id="how-to-get-api-token">How to get API Token</h2>
 
 <p>API token is located on your profile page in UI.</p>
 
 <blockquote>
 <p>Example API call</p>
 </blockquote>
-<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
-</code></pre>
-<pre><code class="highlight scala"><span class="c1">// scala code here
-</span></code></pre>
-<pre><code class="highlight shell">curl -H <span class="s1">'Accept: application/json'</span>
-     -H <span class="s1">'Content-type: application/json'</span>
-     -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
-     <span class="s1">'https://toro.collective-media.net/api/advertisers'</span>
-</code></pre>
-
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">your_api_token</code> with your API token.</p>
-</blockquote>
-
-<aside class="notice">
-You must replace `your_api_token` with your personal API token.
-</aside>
-
-          <h1 id="advertisers">Advertisers</h1>
-
-<h2 id="get-all-advertisers">Get all advertisers</h2>
 <pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
 </code></pre>
 <pre><code class="highlight scala"><span class="c1">// scala code here
@@ -90,6 +69,78 @@ You must replace `your_api_token` with your personal API token.
 </code></pre>
 
 <blockquote>
+<p>Make sure to replace <code class="prettyprint">your_api_token</code> with your API token.</p>
+</blockquote>
+
+<aside class="notice">
+You must replace `your_api_token` with your personal API token.
+</aside>
+
+          <h2 id="http-response-codes">HTTP Response codes</h2>
+
+<h3 id="successful-responses">Successful Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Ok &ndash; Request succeeded</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created &ndash; Resource created successfully</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error Responses</h3>
+
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request &ndash; Unable to understand or parse request</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized &ndash; Your API key is missing or invalid.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found &ndash; The specified resource does not exist.</td>
+</tr>
+<tr>
+<td>422</td>
+<td>Unprocessable Entity &ndash; Request failed due to validation errors. Validate params and try again.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+</tr>
+</tbody></table>
+
+          <h1 id="advertisers">Advertisers</h1>
+
+<h2 id="get-all-advertisers">Get all advertisers</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/advertisers'</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
+</code></pre>
+<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
+</code></pre>
+<pre><code class="highlight scala"><span class="c1">// scala code here
+</span></code></pre>
+
+<blockquote>
 <p>Response</p>
 </blockquote>
 <pre><code class="highlight json"><span class="p">[</span><span class="w">
@@ -97,7 +148,6 @@ You must replace `your_api_token` with your personal API token.
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Christoph"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"testmode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inventory_tier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-04-22T12:51:32.464Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-04-22T12:51:32.464Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -105,7 +155,6 @@ You must replace `your_api_token` with your personal API token.
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yahoo!"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"testmode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inventory_tier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-07-22T17:32:34.164Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-07-22T17:32:34.164Z"</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -113,7 +162,6 @@ You must replace `your_api_token` with your personal API token.
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teleflora"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"testmode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"inventory_tier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-07-23T14:46:03.243Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-07-23T14:46:03.243Z"</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -131,24 +179,16 @@ You must replace `your_api_token` with your personal API token.
 <table><thead>
 <tr>
 <th>Field</th>
-<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>name</td>
-<td></td>
 <td>Name of the advertiser.</td>
 </tr>
 <tr>
 <td>testmode</td>
-<td>false</td>
-<td>If set to false, advertiser will be only for testing purpose. This attribute can only be set by &lsquo;admin&rsquo; user.</td>
-</tr>
-<tr>
-<td>inventory_tier_id</td>
-<td></td>
-<td>Id of inventory package</td>
+<td>True when advertiser is used for testing purpose. Otherwise false.</td>
 </tr>
 </tbody></table>
 
@@ -171,7 +211,6 @@ You must replace `your_api_token` with your personal API token.
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yahoo!"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"testmode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"inventory_tier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-07-22T17:32:34.164Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-07-22T17:32:34.164Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -197,11 +236,7 @@ You must replace `your_api_token` with your personal API token.
 </tr>
 <tr>
 <td>testmode</td>
-<td>If set to false, advertiser will be only for testing purpose. This attribute can only be set by &#39;admin&rsquo; user.</td>
-</tr>
-<tr>
-<td>inventory_tier_id</td>
-<td>Id of inventory package</td>
+<td>True when advertiser is used for testing purpose. Otherwise false.</td>
 </tr>
 </tbody></table>
 
@@ -225,10 +260,9 @@ You must replace `your_api_token` with your personal API token.
   </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">148</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Test Advertiser"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"testmode"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"inventory_tier_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2015-05-05T18:44:06.183Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2015-05-05T18:44:06.183Z"</span><span class="p">,</span><span class="w">
-</span><span class="err">}</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2015-05-05T18:44:06.183Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <p>Creates advertiser.</p>
@@ -252,7 +286,7 @@ You must replace `your_api_token` with your personal API token.
 <tr>
 <td>testmode</td>
 <td>false</td>
-<td>If set to false, advertiser will be only for testing purpose. This attribute can only be set by &#39;admin&rsquo; user.</td>
+<td>If set to false, advertiser will be only for testing purpose. This attribute can only be set by &lsquo;admin&rsquo; user.</td>
 </tr>
 </tbody></table>
 
@@ -270,11 +304,7 @@ You must replace `your_api_token` with your personal API token.
 </tr>
 <tr>
 <td>testmode</td>
-<td>If set to false, advertiser will be only for testing purpose. This attribute can only be set by &#39;admin&rsquo; user.</td>
-</tr>
-<tr>
-<td>inventory_tier_id</td>
-<td>Id of inventory package</td>
+<td>True when advertiser is used for testing purpose. Otherwise false.</td>
 </tr>
 </tbody></table>
 
@@ -311,13 +341,32 @@ You must replace `your_api_token` with your personal API token.
 <tr>
 <td>name</td>
 <td></td>
-<td><strong>[Required]</strong> Name of the advertiser.</td>
+<td>Name of the advertiser.</td>
+</tr>
+<tr>
+<td>testmode</td>
+<td>false</td>
+<td>If set to false, advertiser will be only for testing purpose. This attribute can only be set by &#39;admin&rsquo; user.</td>
 </tr>
 </tbody></table>
 
 <h3 id="response">Response</h3>
 
-<p>Returns empty response with 204 HTTP Status code.</p>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Name of the advertiser.</td>
+</tr>
+<tr>
+<td>testmode</td>
+<td>True when advertiser is used for testing purpose. Otherwise false.</td>
+</tr>
+</tbody></table>
 
           <h1 id="creatives">Creatives</h1>
 
@@ -543,38 +592,6 @@ You must replace `your_api_token` with your personal API token.
 <tr>
 <td>zone</td>
 <td>Zone associated with creative</td>
-</tr>
-</tbody></table>
-
-          <h1 id="errors">Errors</h1>
-
-<p>The Toro API uses the following error codes:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
 </tr>
 </tbody></table>
 
