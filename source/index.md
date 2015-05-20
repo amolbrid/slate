@@ -14,6 +14,7 @@ includes:
   - how_to_get_api_token
   - http_response_codes
   - advertisers
+  - brands
   - creatives
 
 search: true
