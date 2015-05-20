@@ -20,6 +20,11 @@ curl 'https://toro.collective-media.net/api/advertisers' \
 
 > Response
 
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+```
+
 ```json
 [
   {
@@ -56,6 +61,7 @@ List of the all advertisers.
 
 Field | Description
 --------- | -----------
+id | Advertiser id
 name | Name of the advertiser.
 testmode | True when advertiser is used for testing purpose. Otherwise false.
 
@@ -78,7 +84,12 @@ curl 'https://toro.collective-media.net/api/advertisers/31' \
   -H 'Authorization: Token token="your_api_token"'
 ```
 
-> The above request returns:
+> Response
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+```
 
 ```json
 {
@@ -100,6 +111,7 @@ Gets advertiser by id
 
 Field | Description
 --------- | -----------
+id | Advertiser id
 name | Name of the advertiser.
 testmode | True when advertiser is used for testing purpose. Otherwise false.
 
@@ -124,6 +136,11 @@ curl 'https://toro.collective-media.net/api/advertisers' \
 ```
 
 > Response:
+
+```
+HTTP/1.1 201 OK
+Content-Type: application/json; charset=utf-8
+```
 
 ```json
 {
@@ -150,6 +167,7 @@ testmode | false | If set to false, advertiser will be only for testing purpose.
 
 Field | Description
 --------- | -----------
+id | Advertiser id
 name | Name of the advertiser.
 testmode | True when advertiser is used for testing purpose. Otherwise false.
 
@@ -173,9 +191,22 @@ curl 'https://toro.collective-media.net/rtb_advertisers/32' \
   -d '{name": "Test Advertiser"}'
 ```
 
-> Updates advertiser name and returns 204 HTTP status code
+> Response
 
-Updates advertiser.
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+```
+
+```json
+{
+  "id":148,
+  "name":"Test Advertiser",
+  "testmode":false,
+  "created_at":"2015-05-05T18:44:06.183Z",
+  "updated_at":"2015-05-05T18:44:06.183Z"
+}
+```
 
 ### Request
 
@@ -190,5 +221,6 @@ testmode | false | If set to false, advertiser will be only for testing purpose.
 
 Field | Description
 --------- | -----------
+id | Advertiser id
 name | Name of the advertiser.
 testmode | True when advertiser is used for testing purpose. Otherwise false.
