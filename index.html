@@ -110,7 +110,7 @@ You must replace `your_api_token` with your personal API token.
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized &ndash; Your API key is missing or invalid.</td>
+<td>Unauthorized &ndash; Request is either missing API key or API key is invalid.</td>
 </tr>
 <tr>
 <td>404</td>
@@ -143,6 +143,9 @@ You must replace `your_api_token` with your personal API token.
 <blockquote>
 <p>Response</p>
 </blockquote>
+<pre><code class="highlight plaintext">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+</code></pre>
 <pre><code class="highlight json"><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -183,6 +186,10 @@ You must replace `your_api_token` with your personal API token.
 </tr>
 </thead><tbody>
 <tr>
+<td>id</td>
+<td>Advertiser id</td>
+</tr>
+<tr>
 <td>name</td>
 <td>Name of the advertiser.</td>
 </tr>
@@ -205,8 +212,11 @@ You must replace `your_api_token` with your personal API token.
 </code></pre>
 
 <blockquote>
-<p>The above request returns:</p>
+<p>Response</p>
 </blockquote>
+<pre><code class="highlight plaintext">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+</code></pre>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yahoo!"</span><span class="p">,</span><span class="w">
@@ -230,6 +240,10 @@ You must replace `your_api_token` with your personal API token.
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>id</td>
+<td>Advertiser id</td>
+</tr>
 <tr>
 <td>name</td>
 <td>Name of the advertiser.</td>
@@ -256,6 +270,9 @@ You must replace `your_api_token` with your personal API token.
 <blockquote>
 <p>Response:</p>
 </blockquote>
+<pre><code class="highlight plaintext">HTTP/1.1 201 OK
+Content-Type: application/json; charset=utf-8
+</code></pre>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">148</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Test Advertiser"</span><span class="p">,</span><span class="w">
@@ -299,6 +316,10 @@ You must replace `your_api_token` with your personal API token.
 </tr>
 </thead><tbody>
 <tr>
+<td>id</td>
+<td>Advertiser id</td>
+</tr>
+<tr>
 <td>name</td>
 <td>Name of the advertiser.</td>
 </tr>
@@ -322,10 +343,19 @@ You must replace `your_api_token` with your personal API token.
 </code></pre>
 
 <blockquote>
-<p>Updates advertiser name and returns 204 HTTP status code</p>
+<p>Response</p>
 </blockquote>
-
-<p>Updates advertiser.</p>
+<pre><code class="highlight plaintext">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+</code></pre>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">148</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Test Advertiser"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"testmode"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2015-05-05T18:44:06.183Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2015-05-05T18:44:06.183Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <h3 id="request">Request</h3>
 
@@ -358,6 +388,10 @@ You must replace `your_api_token` with your personal API token.
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>id</td>
+<td>Advertiser id</td>
+</tr>
 <tr>
 <td>name</td>
 <td>Name of the advertiser.</td>
