@@ -216,7 +216,6 @@ Updates brand.
 Field | Default | Description
 --------- | ------- | -----------
 name |  | Brand name. This should be unique within advertiser
-advertiser_id | | Advertiser id
 
 ### Response
 
