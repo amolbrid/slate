@@ -161,7 +161,7 @@ Creates advertiser.
 Field | Default | Description
 --------- | ------- | -----------
 name |  | **[Required]** Name of the advertiser.
-testmode | false | If set to false, advertiser will be only for testing purpose. This attribute can only be set by 'admin' user.
+testmode | false | When set to true, advertiser will be only for testing purpose. This attribute can only be set by 'admin' user.
 
 ### Response
 
@@ -215,7 +215,7 @@ Content-Type: application/json; charset=utf-8
 Field | Default | Description
 --------- | ------- | -----------
 name |  | Name of the advertiser.
-testmode | false | If set to false, advertiser will be only for testing purpose. This attribute can only be set by 'admin' user.
+testmode | false | When set to true, advertiser will be only for testing purpose. This attribute can only be set by 'admin' user.
 
 ### Response
 
