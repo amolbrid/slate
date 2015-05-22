@@ -50,56 +50,61 @@
 
 <p>Introduction to Toro APIs</p>
 
-          <h2 id="how-to-get-api-token">How to get API Token</h2>
-
-<p>API token is located on your profile page in UI.</p>
+          <h1 id="authentication">Authentication</h1>
 
 <blockquote>
-<p>Example API call</p>
+<p>Example API request</p>
 </blockquote>
-<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
-</code></pre>
-<pre><code class="highlight scala"><span class="c1">// scala code here
-</span></code></pre>
 <pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/advertisers'</span> <span class="se">\</span>
   -X GET <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
 </code></pre>
+<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
+</code></pre>
+<pre><code class="highlight scala"><span class="c1">// scala code here
+</span></code></pre>
 
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">your_api_token</code> with your API token.</p>
-</blockquote>
+<p>Toro uses API token to authenticate requests. It expects all API requests to include token in request header in following format:</p>
+
+<p><code class="prettyprint">Authorization: Token token=&quot;your_api_token&quot;</code></p>
+
+<p>Registered users can get API token by navigating to their profile page in Toro UI.</p>
 
 <aside class="notice">
 You must replace `your_api_token` with your personal API token.
 </aside>
 
-          <h2 id="http-response-codes">HTTP Response codes</h2>
+          <h1 id="response-codes">Response codes</h1>
 
-<h3 id="successful-responses">Successful Responses</h3>
+<p>Toro API uses conventional <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP response codes</a> to indicate success or failure of an API request. Below are details of success and error codes returned by Toro.</p>
+
+<h2 id="successful-responses">Successful Responses</h2>
 
 <table><thead>
 <tr>
 <th>Status Code</th>
+<th>Text</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>200</td>
-<td>Ok &ndash; Request succeeded</td>
+<td>Ok</td>
+<td>Success!</td>
 </tr>
 <tr>
 <td>201</td>
-<td>Created &ndash; Resource created successfully</td>
+<td>Created</td>
+<td>Resource successfully created</td>
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error Responses</h3>
+<h2 id="error-responses">Error Responses</h2>
 
 <blockquote>
-<p>400, 404 and 422 provides more details on error. JSON structure of error response returned for these status codes is in following format:</p>
+<p>In addition to HTTP status code, Toro API also returns error details for 400, 404 and 422 codes. Error response is in following format:</p>
 </blockquote>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -116,7 +121,7 @@ You must replace `your_api_token` with your personal API token.
 </span></code></pre>
 
 <blockquote>
-<p><strong>errors</strong> attribute in JSON response is optional and is only populated when there are validation errors. Examples:</p>
+<p><strong>errors</strong> attribute in response is optional and is only populated when there are validation errors. Examples of error message:</p>
 </blockquote>
 <pre><code class="highlight plaintext">HTTP/1.1 404 Not Found
 </code></pre>
@@ -152,28 +157,34 @@ HTTP/1.1 400 Bad Request
 <table><thead>
 <tr>
 <th>Status Code</th>
+<th>Text</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request &ndash; Unable to understand or parse request</td>
+<td>Bad Request</td>
+<td>Unable to understand or parse request</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized &ndash; Request is either missing API key or API key is invalid.</td>
+<td>Unauthorized</td>
+<td>Request is either missing API token or API token is invalid.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found &ndash; The specified resource does not exist.</td>
+<td>Not Found</td>
+<td>The specified resource does not exist.</td>
 </tr>
 <tr>
 <td>422</td>
-<td>Unprocessable Entity &ndash; Request failed due to validation errors. Validate params and try again.</td>
+<td>Unprocessable Entity</td>
+<td>Request failed due to validation errors. Validate params and try again.</td>
 </tr>
 <tr>
 <td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+<td>Internal Server Error</td>
+<td>We had a problem with our server. Try again later.</td>
 </tr>
 </tbody></table>
 
@@ -321,7 +332,7 @@ Content-Type: application/json; charset=utf-8
 <blockquote>
 <p>Response:</p>
 </blockquote>
-<pre><code class="highlight plaintext">HTTP/1.1 201 OK
+<pre><code class="highlight plaintext">HTTP/1.1 201 Created
 Content-Type: application/json; charset=utf-8
 </code></pre>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
@@ -604,7 +615,7 @@ Content-Type: application/json; charset=utf-8
 <blockquote>
 <p>Response:</p>
 </blockquote>
-<pre><code class="highlight plaintext">HTTP/1.1 201 OK
+<pre><code class="highlight plaintext">HTTP/1.1 201 Created
 Content-Type: application/json; charset=utf-8
 </code></pre>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
@@ -735,88 +746,7 @@ Content-Type: application/json; charset=utf-8
 
           <h1 id="creatives">Creatives</h1>
 
-<h2 id="get-all-creatives">Get all creatives</h2>
-<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
-</code></pre>
-<pre><code class="highlight scala"><span class="c1">// scala code here
-</span></code></pre>
-<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/creatives?advertiser_id=2'</span> <span class="se">\</span>
-  -X GET <span class="se">\</span>
-  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
-</code></pre>
-
-<blockquote>
-<p>Response</p>
-</blockquote>
-<pre><code class="highlight json"><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">112</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disney | 160x600 | 1.75"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160x600"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.75"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T17:30:25.732Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-28T15:40:28.980Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"iframe_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://a.collective-media.net/adi/cm.proga/1.75;sz=160x600;tgt=1.75${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"is_can_be_dissociate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"audit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rejected"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ssl_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creative does not display properly"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"appnexus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16822718"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"submitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rejected"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"expired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disney | 160x600 | disney_dmx_cpa"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160x600"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disney_dmx_cpa"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-27T18:35:11.837Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-28T15:34:50.403Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"iframe_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://a.collective-media.net/adi/cm.proga/disney_dmx_cpa;sz=160x600;tgt=disney_dmx_cpa${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"is_can_be_dissociate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"audit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"audited"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ssl_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"appnexus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13858137"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"submitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"audited"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"expired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>List all creatives for advertiser</p>
-
-<h3 id="request">Request</h3>
-
-<p><code class="prettyprint">GET https://toro.collective-media.net/api/creatives?advertiser_id={advertiser_id}</code></p>
-
-<h3 id="query-parameters">Query parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>advertiser_id</td>
-<td><strong>[Required]</strong> Advertiser id.</td>
-</tr>
-</tbody></table>
-
-<h3 id="response">Response</h3>
+<h2 id="fields-guide">Fields Guide</h2>
 
 <table><thead>
 <tr>
@@ -840,91 +770,153 @@ Content-Type: application/json; charset=utf-8
 <td>zone</td>
 <td>Zone associated with creative</td>
 </tr>
-</tbody></table>
-
-<h5 id="appnexus-fields">Appnexus Fields</h5>
-
-<table><thead>
 <tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Associated appnexus creative id</td>
+<td>advertiser_id</td>
+<td>Advertiser associated with creative</td>
 </tr>
 <tr>
-<td>submitted</td>
-<td>Creative submitted for audit</td>
+<td>appnexus_id</td>
+<td>Associated appnexus id</td>
 </tr>
 <tr>
-<td>status</td>
-<td>Audited status of creative in appnexus</td>
+<td>iframe_url</td>
+<td>creative url</td>
 </tr>
 <tr>
-<td>expired</td>
-<td>Whether creative is expired</td>
-</tr>
-</tbody></table>
-
-<h5 id="audit-fields">Audit Fields</h5>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>status</td>
-<td>Audit status of creative</td>
+<td>is_expired</td>
+<td>True if creative is expired. otherwise false</td>
 </tr>
 <tr>
-<td>ssl_status</td>
-<td>SSL audit status of creative</td>
+<td>submitted_to_appnexus</td>
+<td>true when creative is submitted to appnexus for auditing. Otherwise false.</td>
 </tr>
 <tr>
-<td>response</td>
-<td>Error message returned by Appnexus when audit fails.</td>
+<td>audit_status</td>
+<td>Creative audit status. Possible values: &ldquo;pending&rdquo;, &ldquo;audited&rdquo; and &ldquo;rejected&rdquo;.</td>
+</tr>
+<tr>
+<td>audit_feedback</td>
+<td>If creative is rejected, this will contain the reason  rejection.</td>
+</tr>
+<tr>
+<td>ssl_audit_status</td>
+<td>Audit status of ssl creative</td>
+</tr>
+<tr>
+<td>tracking_pixels</td>
+<td>Tracking pixel associated with creative</td>
 </tr>
 </tbody></table>
 
-<h2 id="get-single-creative">Get single creative</h2>
-<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
-</code></pre>
-<pre><code class="highlight scala"><span class="c1">// scala code here
-</span></code></pre>
-<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/creatives/234'</span> <span class="se">\</span>
+<h2 id="get-all-creatives">Get all creatives</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/creatives?advertiser_id=2'</span> <span class="se">\</span>
   -X GET <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
 </code></pre>
+<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
+</code></pre>
+<pre><code class="highlight scala"><span class="c1">// scala code here
+</span></code></pre>
 
 <blockquote>
 <p>Response</p>
 </blockquote>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">234</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON Disney | 300x250 | dny_domcom_1_new"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"300x250"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dny_domcom_1_new"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-02T22:20:53.208Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-28T15:40:59.219Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"iframe_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://a.collective-media.net/adi/cm.proga/dny_domcom_1_new;sz=300x250;tgt=dny_domcom_1_new${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"is_can_be_dissociate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"audit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"audited"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ssl_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+<pre><code class="highlight json"><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">113</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disney | 728x90 | 1.75"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"728x90"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.75"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"advertiser_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T17:30:25.747Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-28T15:40:30.636Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"appnexus_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16822724"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"submitted_to_appnexus"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_expired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audit_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rejected"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ssl_audit_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audit_feedback"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creative does not display properly"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"iframe_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://a.collective-media.net/adi/cm.proga/1.75;sz=728x90;tgt=1.75${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tracking_pixels"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"appnexus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16943312"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"submitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"audited"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disney | 728x90 | disney_dmx_cpa"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"728x90"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disney_dmx_cpa"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"advertiser_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-27T18:35:11.846Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-28T15:34:37.045Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"appnexus_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13858138"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"submitted_to_appnexus"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_expired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audit_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"audited"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ssl_audit_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audit_feedback"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"iframe_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://a.collective-media.net/adi/cm.proga/disney_dmx_cpa;sz=728x90;tgt=disney_dmx_cpa${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tracking_pixels"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
   </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre>
+
+<p>List all creatives for advertiser</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET https://toro.collective-media.net/api/creatives?advertiser_id={advertiser_id}</code></p>
+
+<h3 id="query-parameters">Query parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>advertiser_id</td>
+<td><strong>[Required]</strong> Advertiser id.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-single-creative">Get single creative</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/creatives/14'</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
+</code></pre>
+<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
+</code></pre>
+<pre><code class="highlight scala"><span class="c1">// scala code here
+</span></code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre><code class="highlight plaintext">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+</code></pre>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disney | 728x90 | disney_dmx_cpa"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"728x90"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disney_dmx_cpa"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"advertiser_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-27T18:35:11.846Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-28T15:34:37.045Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"appnexus_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13858138"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"submitted_to_appnexus"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_expired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"audit_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"audited"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ssl_audit_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"audit_feedback"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"iframe_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://a.collective-media.net/adi/cm.proga/disney_dmx_cpa;sz=728x90;tgt=disney_dmx_cpa${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tracking_pixels"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -934,7 +926,83 @@ Content-Type: application/json; charset=utf-8
 
 <p><code class="prettyprint">GET https://toro.collective-media.net/api/creatives/{creative_id}</code></p>
 
-<h3 id="response">Response</h3>
+<h2 id="create-creative">Create creative</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/creatives'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span> <span class="se">\</span>
+  -d <span class="s1">'{"name":"Test creative", "size":["160x600"], "zone":"test.zone", "advertiser_id":2}'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight plaintext">HTTP/1.1 201 Created
+Content-Type: application/json; charset=utf-8
+</code></pre>
+<pre><code class="highlight json"><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">599</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test creative | 160x600 | test.zone"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160x600"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test.zone"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"advertiser_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-22T14:31:58.040Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-22T14:31:58.040Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"appnexus_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"submitted_to_appnexus"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_expired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audit_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ssl_audit_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audit_feedback"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"iframe_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://a.collective-media.net/adi/cm.proga/test.zone;sz=160x600;tgt=test.zone${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tracking_pixels"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Creates one or more creatives.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">POST https://toro.collective-media.net/api/creatives</code></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td></td>
+<td><strong>[Required]</strong> Creative name. Should be unique.</td>
+</tr>
+<tr>
+<td>size</td>
+<td></td>
+<td><strong>[Required]</strong> Array of ad sizes. Creatives are created for each ad size. So if there are two ad sizes, &ldquo;160x600&rdquo; and &ldquo;300x250&rdquo;, two creatives will be created. One with ad size &ldquo;160x600&rdquo; and other with ad size &ldquo;300x250&rdquo;.</td>
+</tr>
+<tr>
+<td>zone</td>
+<td></td>
+<td><strong>[Required]</strong> Zone associated with creative</td>
+</tr>
+<tr>
+<td>advertiser_id</td>
+<td></td>
+<td><strong>[Required]</strong> Advertiser id</td>
+</tr>
+<tr>
+<td>tracking_pixel</td>
+<td></td>
+<td>Array of tracking pixel associated with creative.</td>
+</tr>
+</tbody></table>
+
+<h4 id="tracking-pixel">Tracking pixel</h4>
 
 <table><thead>
 <tr>
@@ -943,19 +1011,75 @@ Content-Type: application/json; charset=utf-8
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Creative id</td>
+<td>format</td>
+<td><strong>[Required]</strong> Pixel format. Valid values: &ldquo;url-html&rdquo;, &ldquo;url-js&rdquo;, &ldquo;url-image&rdquo; or &ldquo;raw-url&rdquo;</td>
 </tr>
 <tr>
+<td>url</td>
+<td><strong>[Required]</strong> Pixel url</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-creative">Update creative</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/creatives/599'</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span> <span class="se">\</span>
+  -d <span class="s1">'{"zone":"new.zone"}'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight plaintext">HTTP/1.1 200 Ok
+Content-Type: application/json; charset=utf-8
+</code></pre>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">599</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test creative | 160x600 | test.zone"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160x600"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"zone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new.zone"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"advertiser_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-22T14:31:58.040Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-22T14:58:43.819Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"appnexus_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"submitted_to_appnexus"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_expired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"audit_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ssl_audit_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"audit_feedback"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"iframe_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://a.collective-media.net/adi/cm.proga/new.zone;sz=160x600;tgt=new.zone${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tracking_pixels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Updates creative</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">PUT https://toro.collective-media.net/api/creatives/{creative_id}</code></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
 <td>name</td>
-<td>Name of the creative.</td>
+<td></td>
+<td>Creative name. Should be unique.</td>
 </tr>
 <tr>
 <td>size</td>
-<td>Creative size</td>
+<td></td>
+<td>Ad size.</td>
 </tr>
 <tr>
 <td>zone</td>
+<td></td>
 <td>Zone associated with creative</td>
 </tr>
 </tbody></table>
