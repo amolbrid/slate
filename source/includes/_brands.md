@@ -137,7 +137,7 @@ curl 'https://toro.collective-media.net/api/brands' \
 > Response:
 
 ```
-HTTP/1.1 201 OK
+HTTP/1.1 201 Created
 Content-Type: application/json; charset=utf-8
 ```
 
