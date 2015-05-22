@@ -1,16 +1,18 @@
-## HTTP Response codes
+# Response codes
 
-### Successful Responses
+Toro API uses conventional [HTTP response codes](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes) to indicate success or failure of an API request. Below are details of success and error codes returned by Toro.
 
-Status Code | Description
----------- | -----------
-200 | Ok -- Request succeeded
-201 | Created -- Resource created successfully
+## Successful Responses
 
-### Error Responses
+Status Code | Text | Description
+---------- | ----------- | ---------
+200 | Ok | Success!
+201 | Created | Resource successfully created
 
 
-> 400, 404 and 422 provides more details on error. JSON structure of error response returned for these status codes is in following format:
+## Error Responses
+
+> In addition to HTTP status code, Toro API also returns error details for 400, 404 and 422 codes. Error response is in following format:
 
 ```json
 {
@@ -27,7 +29,7 @@ Status Code | Description
 }
 ```
 
-> **errors** attribute in JSON response is optional and is only populated when there are validation errors. Examples:
+> **errors** attribute in response is optional and is only populated when there are validation errors. Examples of error message:
 
 ```
 HTTP/1.1 404 Not Found
@@ -69,10 +71,10 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-Status Code | Description
----------- | -------
-400 | Bad Request -- Unable to understand or parse request
-401 | Unauthorized -- Request is either missing API key or API key is invalid.
-404 | Not Found -- The specified resource does not exist.
-422 | Unprocessable Entity -- Request failed due to validation errors. Validate params and try again.
-500 | Internal Server Error -- We had a problem with our server. Try again later.
+Status Code | Text | Description
+---------- | ------- | --------
+400 | Bad Request | Unable to understand or parse request
+401 | Unauthorized | Request is either missing API token or API token is invalid.
+404 | Not Found | The specified resource does not exist.
+422 | Unprocessable Entity | Request failed due to validation errors. Validate params and try again.
+500 | Internal Server Error | We had a problem with our server. Try again later.

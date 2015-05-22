@@ -1,16 +1,6 @@
-## How to get API Token
+# Authentication
 
-API token is located on your profile page in UI.
-
-> Example API call
-
-```ruby
-# ruby code here
-```
-
-```scala
-// scala code here
-```
+> Example API request
 
 ```shell
 curl 'https://toro.collective-media.net/api/advertisers' \
@@ -20,7 +10,19 @@ curl 'https://toro.collective-media.net/api/advertisers' \
   -H 'Authorization: Token token="your_api_token"'
 ```
 
-> Make sure to replace `your_api_token` with your API token.
+```ruby
+# ruby code here
+```
+
+```scala
+// scala code here
+```
+
+Toro uses API token to authenticate requests. It expects all API requests to include token in request header in following format:
+
+`Authorization: Token token="your_api_token"`
+
+Registered users can get API token by navigating to their profile page in Toro UI.
 
 <aside class="notice">
 You must replace `your_api_token` with your personal API token.
