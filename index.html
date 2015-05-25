@@ -13,7 +13,7 @@
 
       <script>
         $(function() {
-          setupLanguages(["shell","ruby","scala"]);
+          setupLanguages(["curl"]);
         });
       </script>
   </head>
@@ -28,9 +28,7 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="scala">scala</a>
+              <a href="#" data-language-name="curl">curl</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -61,10 +59,6 @@
   -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
 </code></pre>
-<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
-</code></pre>
-<pre><code class="highlight scala"><span class="c1">// scala code here
-</span></code></pre>
 
 <p>Toro uses API token to authenticate requests. It expects all API requests to include token in request header in following format:</p>
 
@@ -123,17 +117,19 @@ You must replace `your_api_token` with your personal API token.
 <blockquote>
 <p><strong>errors</strong> attribute in response is optional and is only populated when there are validation errors. Examples of error message:</p>
 </blockquote>
-<pre><code class="highlight plaintext">HTTP/1.1 404 Not Found
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Couldn't find Advertiser with 'id'=34567"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<pre><code class="highlight plaintext">---
-
-HTTP/1.1 422 Unprocessable Entity
+<pre><code class="highlight plaintext">----
 </code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">422</span> <span class="ne">Unprocessable Entity</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Validation errors"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -145,11 +141,12 @@ HTTP/1.1 422 Unprocessable Entity
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<pre><code class="highlight plaintext">---
-
-HTTP/1.1 400 Bad Request
+<pre><code class="highlight plaintext">----
 </code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JSON parsing error: 795: unexpected token at '{\"name\":\"\"'"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -197,18 +194,14 @@ HTTP/1.1 400 Bad Request
   -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
 </code></pre>
-<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
-</code></pre>
-<pre><code class="highlight scala"><span class="c1">// scala code here
-</span></code></pre>
 
 <blockquote>
-<p>Response</p>
+<p>Response:</p>
 </blockquote>
-<pre><code class="highlight plaintext">HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-</code></pre>
-<pre><code class="highlight json"><span class="p">[</span><span class="w">
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Christoph"</span><span class="p">,</span><span class="w">
@@ -237,7 +230,7 @@ Content-Type: application/json; charset=utf-8
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">GET https://toro.collective-media.net/api/advertisers</code></p>
+<p><code class="prettyprint">GET /api/advertisers</code></p>
 
 <h3 id="response">Response</h3>
 
@@ -262,10 +255,6 @@ Content-Type: application/json; charset=utf-8
 </tbody></table>
 
 <h2 id="get-single-advertiser">Get single advertiser</h2>
-<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
-</code></pre>
-<pre><code class="highlight scala"><span class="c1">// scala code here
-</span></code></pre>
 <pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/advertisers/31'</span> <span class="se">\</span>
   -X GET <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
@@ -274,12 +263,12 @@ Content-Type: application/json; charset=utf-8
 </code></pre>
 
 <blockquote>
-<p>Response</p>
+<p>Response:</p>
 </blockquote>
-<pre><code class="highlight plaintext">HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yahoo!"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"testmode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -292,7 +281,7 @@ Content-Type: application/json; charset=utf-8
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">GET https://toro.collective-media.net/api/advertisers/{advertiser_id}</code></p>
+<p><code class="prettyprint">GET /api/advertisers/{advertiser_id}</code></p>
 
 <h3 id="response">Response</h3>
 
@@ -317,10 +306,6 @@ Content-Type: application/json; charset=utf-8
 </tbody></table>
 
 <h2 id="create-advertiser">Create advertiser</h2>
-<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
-</code></pre>
-<pre><code class="highlight scala"><span class="c1">// scala code here
-</span></code></pre>
 <pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/advertisers'</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
@@ -332,10 +317,10 @@ Content-Type: application/json; charset=utf-8
 <blockquote>
 <p>Response:</p>
 </blockquote>
-<pre><code class="highlight plaintext">HTTP/1.1 201 Created
-Content-Type: application/json; charset=utf-8
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">148</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Test Advertiser"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"testmode"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -348,7 +333,7 @@ Content-Type: application/json; charset=utf-8
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">POST https://toro.collective-media.net/api/advertisers</code></p>
+<p><code class="prettyprint">POST /api/advertisers</code></p>
 
 <table><thead>
 <tr>
@@ -392,10 +377,6 @@ Content-Type: application/json; charset=utf-8
 </tbody></table>
 
 <h2 id="update-advertiser">Update advertiser</h2>
-<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
-</code></pre>
-<pre><code class="highlight scala"><span class="c1">// scala code here
-</span></code></pre>
 <pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/rtb_advertisers/32'</span> <span class="se">\</span>
   -X PUT <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
@@ -405,12 +386,12 @@ Content-Type: application/json; charset=utf-8
 </code></pre>
 
 <blockquote>
-<p>Response</p>
+<p>Response:</p>
 </blockquote>
-<pre><code class="highlight plaintext">HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">148</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Test Advertiser"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"testmode"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -421,7 +402,7 @@ Content-Type: application/json; charset=utf-8
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">PUT https://toro.collective-media.net/api/advertisers/{:advertiser_id}</code></p>
+<p><code class="prettyprint">PUT /api/advertisers/{:advertiser_id}</code></p>
 
 <table><thead>
 <tr>
@@ -473,18 +454,14 @@ Content-Type: application/json; charset=utf-8
   -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
 </code></pre>
-<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
-</code></pre>
-<pre><code class="highlight scala"><span class="c1">// scala code here
-</span></code></pre>
 
 <blockquote>
-<p>Response</p>
+<p>Response:</p>
 </blockquote>
-<pre><code class="highlight plaintext">HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-</code></pre>
-<pre><code class="highlight json"><span class="p">[</span><span class="w">
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consumer Cellular Gen. Business"</span><span class="p">,</span><span class="w">
@@ -506,7 +483,7 @@ Content-Type: application/json; charset=utf-8
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">GET https://toro.collective-media.net/api/brands?advertiser_id={advertiser_id}</code></p>
+<p><code class="prettyprint">GET /api/brands?advertiser_id={advertiser_id}</code></p>
 
 <h3 id="query-parameters">Query parameters</h3>
 
@@ -545,10 +522,6 @@ Content-Type: application/json; charset=utf-8
 </tbody></table>
 
 <h2 id="get-single-brand">Get single brand</h2>
-<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
-</code></pre>
-<pre><code class="highlight scala"><span class="c1">// scala code here
-</span></code></pre>
 <pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/brands/19'</span> <span class="se">\</span>
   -X GET <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
@@ -557,12 +530,12 @@ Content-Type: application/json; charset=utf-8
 </code></pre>
 
 <blockquote>
-<p>Response</p>
+<p>Response:</p>
 </blockquote>
-<pre><code class="highlight plaintext">HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consumer DR Business"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"advertiser_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
@@ -575,7 +548,7 @@ Content-Type: application/json; charset=utf-8
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">GET https://toro.collective-media.net/api/brands/{brand_id}</code></p>
+<p><code class="prettyprint">GET /api/brands/{brand_id}</code></p>
 
 <h3 id="response">Response</h3>
 
@@ -600,10 +573,6 @@ Content-Type: application/json; charset=utf-8
 </tbody></table>
 
 <h2 id="create-brand">Create brand</h2>
-<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
-</code></pre>
-<pre><code class="highlight scala"><span class="c1">// scala code here
-</span></code></pre>
 <pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/brands'</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
@@ -615,10 +584,10 @@ Content-Type: application/json; charset=utf-8
 <blockquote>
 <p>Response:</p>
 </blockquote>
-<pre><code class="highlight plaintext">HTTP/1.1 201 Created
-Content-Type: application/json; charset=utf-8
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Brand"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"advertiser_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
@@ -631,7 +600,7 @@ Content-Type: application/json; charset=utf-8
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">POST https://toro.collective-media.net/api/brands</code></p>
+<p><code class="prettyprint">POST /api/brands</code></p>
 
 <table><thead>
 <tr>
@@ -675,10 +644,6 @@ Content-Type: application/json; charset=utf-8
 </tbody></table>
 
 <h2 id="update-brand">Update brand</h2>
-<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
-</code></pre>
-<pre><code class="highlight scala"><span class="c1">// scala code here
-</span></code></pre>
 <pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/brands/41'</span> <span class="se">\</span>
   -X POST <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
@@ -690,10 +655,10 @@ Content-Type: application/json; charset=utf-8
 <blockquote>
 <p>Response:</p>
 </blockquote>
-<pre><code class="highlight plaintext">HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update brand"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"advertiser_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
@@ -706,7 +671,7 @@ Content-Type: application/json; charset=utf-8
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">PUT https://toro.collective-media.net/api/brands/{brand_id}</code></p>
+<p><code class="prettyprint">PUT /api/brands/{brand_id}</code></p>
 
 <table><thead>
 <tr>
@@ -815,15 +780,14 @@ Content-Type: application/json; charset=utf-8
   -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
 </code></pre>
-<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
-</code></pre>
-<pre><code class="highlight scala"><span class="c1">// scala code here
-</span></code></pre>
 
 <blockquote>
-<p>Response</p>
+<p>Response:</p>
 </blockquote>
-<pre><code class="highlight json"><span class="p">[</span><span class="w">
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">113</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disney | 728x90 | 1.75"</span><span class="p">,</span><span class="w">
@@ -866,7 +830,7 @@ Content-Type: application/json; charset=utf-8
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">GET https://toro.collective-media.net/api/creatives?advertiser_id={advertiser_id}</code></p>
+<p><code class="prettyprint">GET /api/creatives?advertiser_id={advertiser_id}</code></p>
 
 <h3 id="query-parameters">Query parameters</h3>
 
@@ -889,18 +853,14 @@ Content-Type: application/json; charset=utf-8
   -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
 </code></pre>
-<pre><code class="highlight ruby"><span class="c1"># ruby code here</span>
-</code></pre>
-<pre><code class="highlight scala"><span class="c1">// scala code here
-</span></code></pre>
 
 <blockquote>
-<p>Response</p>
+<p>Response:</p>
 </blockquote>
-<pre><code class="highlight plaintext">HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disney | 728x90 | disney_dmx_cpa"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"728x90"</span><span class="p">,</span><span class="w">
@@ -924,7 +884,7 @@ Content-Type: application/json; charset=utf-8
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">GET https://toro.collective-media.net/api/creatives/{creative_id}</code></p>
+<p><code class="prettyprint">GET /api/creatives/{creative_id}</code></p>
 
 <h2 id="create-creative">Create creative</h2>
 <pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/creatives'</span> <span class="se">\</span>
@@ -938,10 +898,10 @@ Content-Type: application/json; charset=utf-8
 <blockquote>
 <p>Response:</p>
 </blockquote>
-<pre><code class="highlight plaintext">HTTP/1.1 201 Created
-Content-Type: application/json; charset=utf-8
-</code></pre>
-<pre><code class="highlight json"><span class="p">[</span><span class="w">
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">599</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test creative | 160x600 | test.zone"</span><span class="p">,</span><span class="w">
@@ -966,7 +926,7 @@ Content-Type: application/json; charset=utf-8
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">POST https://toro.collective-media.net/api/creatives</code></p>
+<p><code class="prettyprint">POST /api/creatives</code></p>
 
 <table><thead>
 <tr>
@@ -1032,10 +992,10 @@ Content-Type: application/json; charset=utf-8
 <blockquote>
 <p>Response:</p>
 </blockquote>
-<pre><code class="highlight plaintext">HTTP/1.1 200 Ok
-Content-Type: application/json; charset=utf-8
-</code></pre>
-<pre><code class="highlight json"><span class="p">{</span><span class="w">
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">Ok</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">599</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test creative | 160x600 | test.zone"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160x600"</span><span class="p">,</span><span class="w">
@@ -1058,7 +1018,7 @@ Content-Type: application/json; charset=utf-8
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">PUT https://toro.collective-media.net/api/creatives/{creative_id}</code></p>
+<p><code class="prettyprint">PUT /api/creatives/{creative_id}</code></p>
 
 <table><thead>
 <tr>
@@ -1087,9 +1047,7 @@ Content-Type: application/json; charset=utf-8
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="scala">scala</a>
+                <a href="#" data-language-name="curl">curl</a>
           </div>
       </div>
     </div>
