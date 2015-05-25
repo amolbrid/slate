@@ -10,13 +10,6 @@ curl 'https://toro.collective-media.net/api/advertisers' \
   -H 'Authorization: Token token="your_api_token"'
 ```
 
-```ruby
-# ruby code here
-```
-
-```scala
-// scala code here
-```
 
 Toro uses API token to authenticate requests. It expects all API requests to include token in request header in following format:
 

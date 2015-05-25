@@ -10,22 +10,12 @@ curl 'https://toro.collective-media.net/api/advertisers' \
   -H 'Authorization: Token token="your_api_token"'
 ```
 
-```ruby
-# ruby code here
-```
+> Response:
 
-```scala
-// scala code here
-```
-
-> Response
-
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
-```
 
-```json
 [
   {
     "id": 1,
@@ -55,7 +45,7 @@ List of the all advertisers.
 
 ### Request
 
-`GET https://toro.collective-media.net/api/advertisers`
+`GET /api/advertisers`
 
 ### Response
 
@@ -68,14 +58,6 @@ testmode | True when advertiser is used for testing purpose. Otherwise false.
 
 ## Get single advertiser
 
-```ruby
-# ruby code here
-```
-
-```scala
-// scala code here
-```
-
 ```shell
 curl 'https://toro.collective-media.net/api/advertisers/31' \
   -X GET \
@@ -84,14 +66,12 @@ curl 'https://toro.collective-media.net/api/advertisers/31' \
   -H 'Authorization: Token token="your_api_token"'
 ```
 
-> Response
+> Response:
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
-```
 
-```json
 {
   "id": 3,
   "name": "Yahoo!",
@@ -105,7 +85,7 @@ Gets advertiser by id
 
 ### Request
 
-`GET https://toro.collective-media.net/api/advertisers/{advertiser_id}`
+`GET /api/advertisers/{advertiser_id}`
 
 ### Response
 
@@ -118,14 +98,6 @@ testmode | True when advertiser is used for testing purpose. Otherwise false.
 
 ## Create advertiser
 
-```ruby
-# ruby code here
-```
-
-```scala
-// scala code here
-```
-
 ```shell
 curl 'https://toro.collective-media.net/api/advertisers' \
   -X POST \
@@ -137,12 +109,10 @@ curl 'https://toro.collective-media.net/api/advertisers' \
 
 > Response:
 
-```
+```http
 HTTP/1.1 201 Created
 Content-Type: application/json; charset=utf-8
-```
 
-```json
 {
   "id":148,
   "name":"Test Advertiser",
@@ -156,7 +126,7 @@ Creates advertiser.
 
 ### Request
 
-`POST https://toro.collective-media.net/api/advertisers`
+`POST /api/advertisers`
 
 Field | Default | Description
 --------- | ------- | -----------
@@ -174,14 +144,6 @@ testmode | True when advertiser is used for testing purpose. Otherwise false.
 
 ## Update advertiser
 
-```ruby
-# ruby code here
-```
-
-```scala
-// scala code here
-```
-
 ```shell
 curl 'https://toro.collective-media.net/rtb_advertisers/32' \
   -X PUT \
@@ -191,14 +153,12 @@ curl 'https://toro.collective-media.net/rtb_advertisers/32' \
   -d '{name": "Test Advertiser"}'
 ```
 
-> Response
+> Response:
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
-```
 
-```json
 {
   "id":148,
   "name":"Test Advertiser",
@@ -210,7 +170,7 @@ Content-Type: application/json; charset=utf-8
 
 ### Request
 
-`PUT https://toro.collective-media.net/api/advertisers/{:advertiser_id}`
+`PUT /api/advertisers/{:advertiser_id}`
 
 Field | Default | Description
 --------- | ------- | -----------

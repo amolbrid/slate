@@ -31,22 +31,23 @@ Status Code | Text | Description
 
 > **errors** attribute in response is optional and is only populated when there are validation errors. Examples of error message:
 
-```
+```http
 HTTP/1.1 404 Not Found
-```
+Content-Type: application/json; charset=utf-8
 
-```json
 {
   "message":"Couldn't find Advertiser with 'id'=34567"
 }
 ```
 
 ```
----
-
-HTTP/1.1 422 Unprocessable Entity
+----
 ```
-```json
+
+```http
+HTTP/1.1 422 Unprocessable Entity
+Content-Type: application/json; charset=utf-8
+
 {
   "message": "Validation errors",
   "errors": [
@@ -61,11 +62,13 @@ HTTP/1.1 422 Unprocessable Entity
 ```
 
 ```
----
-
-HTTP/1.1 400 Bad Request
+----
 ```
-```json
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type: application/json; charset=utf-8
+
 {
   "message": "JSON parsing error: 795: unexpected token at '{\"name\":\"\"'"
 }

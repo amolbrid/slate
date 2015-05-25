@@ -2,9 +2,7 @@
 title: Toro API Reference
 
 language_tabs:
-  - shell
-  - ruby
-  - scala
+  - curl
 
 toc_footers:
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>

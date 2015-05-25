@@ -10,22 +10,12 @@ curl 'https://toro.collective-media.net/api/brands?advertiser_id=20' \
   -H 'Authorization: Token token="your_api_token"'
 ```
 
-```ruby
-# ruby code here
-```
+> Response:
 
-```scala
-// scala code here
-```
-
-> Response
-
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
-```
 
-```json
 [
   {
     "id": 41,
@@ -48,7 +38,7 @@ List of the brands for provided advertiser.
 
 ### Request
 
-`GET https://toro.collective-media.net/api/brands?advertiser_id={advertiser_id}`
+`GET /api/brands?advertiser_id={advertiser_id}`
 
 ### Query parameters
 
@@ -67,14 +57,6 @@ advertiser_id | Advertiser id.
 
 ## Get single brand
 
-```ruby
-# ruby code here
-```
-
-```scala
-// scala code here
-```
-
 ```shell
 curl 'https://toro.collective-media.net/api/brands/19' \
   -X GET \
@@ -83,14 +65,12 @@ curl 'https://toro.collective-media.net/api/brands/19' \
   -H 'Authorization: Token token="your_api_token"'
 ```
 
-> Response
+> Response:
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
-```
 
-```json
 {
   "id": 19,
   "name": "Consumer DR Business",
@@ -104,7 +84,7 @@ Gets brand by id
 
 ### Request
 
-`GET https://toro.collective-media.net/api/brands/{brand_id}`
+`GET /api/brands/{brand_id}`
 
 ### Response
 
@@ -117,13 +97,6 @@ advertiser_id | Advertiser id.
 
 ## Create brand
 
-```ruby
-# ruby code here
-```
-
-```scala
-// scala code here
-```
 
 ```shell
 curl 'https://toro.collective-media.net/api/brands' \
@@ -136,12 +109,10 @@ curl 'https://toro.collective-media.net/api/brands' \
 
 > Response:
 
-```
+```http
 HTTP/1.1 201 Created
 Content-Type: application/json; charset=utf-8
-```
 
-```json
 {
   "id": 41,
   "name": "Test Brand",
@@ -155,7 +126,7 @@ Creates brand.
 
 ### Request
 
-`POST https://toro.collective-media.net/api/brands`
+`POST /api/brands`
 
 Field | Default | Description
 --------- | ------- | -----------
@@ -173,14 +144,6 @@ advertiser_id | Advertiser id.
 
 ## Update brand
 
-```ruby
-# ruby code here
-```
-
-```scala
-// scala code here
-```
-
 ```shell
 curl 'https://toro.collective-media.net/api/brands/41' \
   -X POST \
@@ -192,12 +155,10 @@ curl 'https://toro.collective-media.net/api/brands/41' \
 
 > Response:
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
-```
 
-```json
 {
   "id": 41,
   "name": "Update brand",
@@ -211,7 +172,7 @@ Updates brand.
 
 ### Request
 
-`PUT https://toro.collective-media.net/api/brands/{brand_id}`
+`PUT /api/brands/{brand_id}`
 
 Field | Default | Description
 --------- | ------- | -----------

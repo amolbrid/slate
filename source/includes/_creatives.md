@@ -29,17 +29,12 @@ curl 'https://toro.collective-media.net/api/creatives?advertiser_id=2' \
   -H 'Authorization: Token token="your_api_token"'
 ```
 
-```ruby
-# ruby code here
-```
+> Response:
 
-```scala
-// scala code here
-```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
 
-> Response
-
-```json
 [
   {
     "id": 113,
@@ -83,7 +78,7 @@ List all creatives for advertiser
 
 ### Request
 
-`GET https://toro.collective-media.net/api/creatives?advertiser_id={advertiser_id}`
+`GET /api/creatives?advertiser_id={advertiser_id}`
 
 ### Query parameters
 
@@ -102,22 +97,12 @@ curl 'https://toro.collective-media.net/api/creatives/14' \
   -H 'Authorization: Token token="your_api_token"'
 ```
 
-```ruby
-# ruby code here
-```
+> Response:
 
-```scala
-// scala code here
-```
-
-> Response
-
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
-```
 
-```json
 {
   "id": 14,
   "name": "Disney | 728x90 | disney_dmx_cpa",
@@ -142,7 +127,7 @@ Gets creative by id
 
 ### Request
 
-`GET https://toro.collective-media.net/api/creatives/{creative_id}`
+`GET /api/creatives/{creative_id}`
 
 
 ## Create creative
@@ -158,12 +143,10 @@ curl 'https://toro.collective-media.net/api/creatives' \
 
 > Response:
 
-```
+```http
 HTTP/1.1 201 Created
 Content-Type: application/json; charset=utf-8
-```
 
-```json
 [
   {
     "id": 599,
@@ -189,7 +172,7 @@ Creates one or more creatives.
 
 ### Request
 
-`POST https://toro.collective-media.net/api/creatives`
+`POST /api/creatives`
 
 Field | Default | Description
 --------- | ------- | -----------
@@ -219,12 +202,10 @@ curl 'https://toro.collective-media.net/api/creatives/599' \
 
 > Response:
 
-```
+```http
 HTTP/1.1 200 Ok
 Content-Type: application/json; charset=utf-8
-```
 
-```json
 {
   "id": 599,
   "name": "Test creative | 160x600 | test.zone",
@@ -248,7 +229,7 @@ Updates creative
 
 ### Request
 
-`PUT https://toro.collective-media.net/api/creatives/{creative_id}`
+`PUT /api/creatives/{creative_id}`
 
 Field | Default | Description
 --------- | ------- | -----------
