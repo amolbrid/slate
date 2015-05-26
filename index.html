@@ -1044,6 +1044,261 @@ You must replace `your_api_token` with your personal API token.
 </tr>
 </tbody></table>
 
+          <h1 id="orders">Orders</h1>
+
+<h2 id="fields-guide">Fields Guide</h2>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Order id</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Order name</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Order start date</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Order end date</td>
+</tr>
+<tr>
+<td>advertiser_id</td>
+<td>Advertiser to which order belongs</td>
+</tr>
+<tr>
+<td>paused</td>
+<td>True when order is paused. Otherwise false</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-all-orders">Get all orders</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/orders?advertiser_id=2'</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disney Movie Club"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-04-01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-04-30"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"advertiser_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-27T17:35:59.553Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-06T20:26:45.579Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disney Q4 Domestic Conversion (DR/AB)"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-02"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-27"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"advertiser_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T17:15:39.136Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T17:15:39.136Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Get all orders for given advertiser</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET /api/orders?advertiser_id={advertiser_id}</code></p>
+
+<h3 id="query-parameters">Query parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>advertiser_id</td>
+<td><strong>[Required]</strong> Advertiser id.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-single-order">Get single order</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/orders/2'</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disney Movie Club"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-04-01"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-04-30"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"advertiser_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-27T17:35:59.553Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-06T20:26:45.579Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Gets order by id.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET /api/orders/{order_id}</code></p>
+
+<h2 id="create-order">Create order</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/orders'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span> <span class="se">\</span>
+  -d <span class="s1">'{"name": "Test Order", "advertiser_id": 2, "start_date":"2015-05-28", "end_date":"2015-06-15", "paused":false}'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">94</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Order"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-28"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-15"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"advertiser_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-26T20:13:35.675Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-26T20:13:35.675Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Creates order.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">POST /api/orders</code></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td></td>
+<td><strong>[Required]</strong> Order name. This should be unique within advertiser.</td>
+</tr>
+<tr>
+<td>advertiser_id</td>
+<td></td>
+<td><strong>[Required]</strong> Advertiser id.</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td></td>
+<td><strong>[Required]</strong> Order start date. Should be greater than today&rsquo;s date. Expected format: YYYY-MM-DD. e.g. 2015-05-28</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td></td>
+<td><strong>[Required]</strong> Order end date. Should be greater than &lsquo;start_date&rsquo;. Expected format: YYYY-MM-DD. e.g. 2015-05-28</td>
+</tr>
+<tr>
+<td>paused</td>
+<td></td>
+<td>True to pause order.</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-order">Update order</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/orders/94'</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span> <span class="se">\</span>
+  -d <span class="s1">'{"name": "Update order"}'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">94</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update Order"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-28"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-15"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"advertiser_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-26T20:13:35.675Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-26T20:14:35.675Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Updates order.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">PUT /api/orders/{order_id}</code></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td></td>
+<td>Order name. This should be unique within advertiser</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td></td>
+<td>Order start date. Should be greater than today&rsquo;s date. Expected format: YYYY-MM-DD. e.g. 2015-05-28</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td></td>
+<td>Order end date. Should be greater than &#39;start_date&rsquo;. Expected format: YYYY-MM-DD. e.g. 2015-05-28</td>
+</tr>
+<tr>
+<td>paused</td>
+<td></td>
+<td>True to pause order.</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
