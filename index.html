@@ -1044,6 +1044,290 @@ You must replace `your_api_token` with your personal API token.
 </tr>
 </tbody></table>
 
+          <h1 id="lineitems">LineItems</h1>
+
+<h2 id="fields-guide">Fields Guide</h2>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Line item id</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Line item name</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Line item start date</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Line item end date</td>
+</tr>
+<tr>
+<td>order_id</td>
+<td>Order to which line item belongs</td>
+</tr>
+<tr>
+<td>business_unit_id</td>
+<td>Brand id</td>
+</tr>
+<tr>
+<td>paused</td>
+<td>True when line item is paused. Otherwise false</td>
+</tr>
+<tr>
+<td>paused_by_parent</td>
+<td>True when line item is paused because order is paused.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-line-items">Get line items</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/line_items?order_id=9'</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Line Item - 1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-29"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"business_unit_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T12:34:29.117Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T12:49:02.872Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">158</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Line Item - 2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-31"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"business_unit_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-12T22:02:42.039Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-12T22:02:42.039Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Gets line items for given order.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET /api/line_items?order_id={order_id}</code></p>
+
+<h3 id="query-parameters">Query parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>order_id</td>
+<td><strong>[Required]</strong> Order id.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-single-line-item">Get single line item</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/line_items/12'</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Line Item - 1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-01"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-29"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"business_unit_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T12:34:29.117Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T12:49:02.872Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Gets line item by give id</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET /api/line_items/{line_item_id}</code></p>
+
+<h2 id="create-line-item">Create line item</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/line_items'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span> <span class="se">\</span>
+  -d <span class="s1">'{"name": "Test Line Item", "order_id": 9, "start_date": "2014-07-01", "end_date":"2014-09-29", "paused": false, "business_unit_id": 107}'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Line Item"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-01"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-29"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"business_unit_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T12:34:29.117Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T12:49:02.872Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Creates line item.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">POST /api/line_items</code></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td></td>
+<td><strong>[Required]</strong> Line item name. This should be unique for order.</td>
+</tr>
+<tr>
+<td>order_id</td>
+<td></td>
+<td><strong>[Required]</strong> Order id.</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td></td>
+<td><strong>[Required]</strong> Line item start date. Should be greater than today&rsquo;s date. Expected format: YYYY-MM-DD. e.g. 2015-05-28</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td></td>
+<td><strong>[Required]</strong> Line item end date. Should be greater than &lsquo;start_date&rsquo;. Expected format: YYYY-MM-DD. e.g. 2015-05-28</td>
+</tr>
+<tr>
+<td>paused</td>
+<td></td>
+<td>True to pause order.</td>
+</tr>
+<tr>
+<td>business_unit_id</td>
+<td></td>
+<td><strong>[Required]</strong> Brand id.</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-line-item">Update line item</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/line_items/12'</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span> <span class="se">\</span>
+  -d <span class="s1">'{"id": 12, "name": "Update Test Line Item", order_id": 9, "start_date": "2014-07-01", "end_date":"2014-09-29", "paused": false, "business_unit_id": 107}'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">Ok</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update Test Line Item"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-01"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-29"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"business_unit_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T12:34:29.117Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T12:49:02.872Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Updates line item.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td></td>
+<td>Line item name. This should be unique for order.</td>
+</tr>
+<tr>
+<td>order_id</td>
+<td></td>
+<td><strong>[Required]</strong> Order id.</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td></td>
+<td>Line item start date. Should be greater than today&rsquo;s date. Expected format: YYYY-MM-DD. e.g. 2015-05-28</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td></td>
+<td>Line item end date. Should be greater than &#39;start_date&rsquo;. Expected format: YYYY-MM-DD. e.g. 2015-05-28</td>
+</tr>
+<tr>
+<td>paused</td>
+<td></td>
+<td>True to pause order.</td>
+</tr>
+<tr>
+<td>business_unit_id</td>
+<td></td>
+<td>Brand id.</td>
+</tr>
+</tbody></table>
+
           <h1 id="orders">Orders</h1>
 
 <h2 id="fields-guide">Fields Guide</h2>
