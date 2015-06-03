@@ -1075,7 +1075,7 @@ You must replace `your_api_token` with your personal API token.
 <td>Order to which line item belongs</td>
 </tr>
 <tr>
-<td>business_unit_id</td>
+<td>brand_id</td>
 <td>Brand id</td>
 </tr>
 <tr>
@@ -1110,7 +1110,7 @@ You must replace `your_api_token` with your personal API token.
     </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-29"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"business_unit_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"brand_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
     </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T12:34:29.117Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T12:49:02.872Z"</span><span class="w">
@@ -1122,7 +1122,7 @@ You must replace `your_api_token` with your personal API token.
     </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-31"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"business_unit_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"brand_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
     </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-12T22:02:42.039Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-12T22:02:42.039Z"</span><span class="w">
@@ -1171,7 +1171,7 @@ You must replace `your_api_token` with your personal API token.
   </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-29"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"business_unit_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"brand_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
   </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T12:34:29.117Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T12:49:02.872Z"</span><span class="w">
@@ -1190,7 +1190,7 @@ You must replace `your_api_token` with your personal API token.
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Token token="your_api_token"'</span> <span class="se">\</span>
-  -d <span class="s1">'{"name": "Test Line Item", "order_id": 9, "start_date": "2014-07-01", "end_date":"2014-09-29", "paused": false, "business_unit_id": 107}'</span>
+  -d <span class="s1">'{"name": "Test Line Item", "order_id": 9, "start_date": "2014-07-01", "end_date":"2014-09-29", "paused": false, "brand_id": 107}'</span>
 </code></pre>
 
 <blockquote>
@@ -1206,7 +1206,7 @@ You must replace `your_api_token` with your personal API token.
   </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-29"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"business_unit_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"brand_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
   </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T12:34:29.117Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T12:49:02.872Z"</span><span class="w">
@@ -1252,7 +1252,7 @@ You must replace `your_api_token` with your personal API token.
 <td>True to pause order.</td>
 </tr>
 <tr>
-<td>business_unit_id</td>
+<td>brand_id</td>
 <td></td>
 <td><strong>[Required]</strong> Brand id.</td>
 </tr>
@@ -1264,7 +1264,7 @@ You must replace `your_api_token` with your personal API token.
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Token token="your_api_token"'</span> <span class="se">\</span>
-  -d <span class="s1">'{"id": 12, "name": "Update Test Line Item", order_id": 9, "start_date": "2014-07-01", "end_date":"2014-09-29", "paused": false, "business_unit_id": 107}'</span>
+  -d <span class="s1">'{"id": 12, "name": "Update Test Line Item", order_id": 9, "start_date": "2014-07-01", "end_date":"2014-09-29", "paused": false, "brand_id": 107}'</span>
 </code></pre>
 
 <blockquote>
@@ -1280,7 +1280,7 @@ You must replace `your_api_token` with your personal API token.
   </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-09-29"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"business_unit_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"brand_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w">
   </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T12:34:29.117Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-06-30T12:49:02.872Z"</span><span class="w">
@@ -1322,7 +1322,7 @@ You must replace `your_api_token` with your personal API token.
 <td>True to pause order.</td>
 </tr>
 <tr>
-<td>business_unit_id</td>
+<td>brand_id</td>
 <td></td>
 <td>Brand id.</td>
 </tr>
