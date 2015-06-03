@@ -8,7 +8,7 @@ name | Line item name
 start_date | Line item start date
 end_date | Line item end date
 order_id | Order to which line item belongs
-business_unit_id | Brand id
+brand_id | Brand id
 paused | True when line item is paused. Otherwise false
 paused_by_parent | True when line item is paused because order is paused.
 
@@ -36,7 +36,7 @@ Content-Type: application/json; charset=utf-8
     "end_date": "2014-09-29",
     "paused": false,
     "paused_by_parent": false,
-    "business_unit_id": 107,
+    "brand_id": 107,
     "order_id": 9,
     "created_at": "2014-06-30T12:34:29.117Z",
     "updated_at": "2014-06-30T12:49:02.872Z"
@@ -48,7 +48,7 @@ Content-Type: application/json; charset=utf-8
     "end_date": "2015-01-31",
     "paused": false,
     "paused_by_parent": false,
-    "business_unit_id": 107,
+    "brand_id": 107,
     "order_id": 9,
     "created_at": "2015-01-12T22:02:42.039Z",
     "updated_at": "2015-01-12T22:02:42.039Z"
@@ -92,7 +92,7 @@ Content-Type: application/json; charset=utf-8
   "end_date": "2014-09-29",
   "paused": false,
   "paused_by_parent": false,
-  "business_unit_id": 107,
+  "brand_id": 107,
   "order_id": 9,
   "created_at": "2014-06-30T12:34:29.117Z",
   "updated_at": "2014-06-30T12:49:02.872Z"
@@ -113,7 +113,7 @@ curl 'https://toro.collective-media.net/api/line_items' \
   -H 'Accept: application/json' \
   -H 'Content-type: application/json' \
   -H 'Authorization: Token token="your_api_token"' \
-  -d '{"name": "Test Line Item", "order_id": 9, "start_date": "2014-07-01", "end_date":"2014-09-29", "paused": false, "business_unit_id": 107}'
+  -d '{"name": "Test Line Item", "order_id": 9, "start_date": "2014-07-01", "end_date":"2014-09-29", "paused": false, "brand_id": 107}'
 ```
 
 > Response:
@@ -129,7 +129,7 @@ Content-Type: application/json; charset=utf-8
   "end_date": "2014-09-29",
   "paused": false,
   "paused_by_parent": false,
-  "business_unit_id": 107,
+  "brand_id": 107,
   "order_id": 9,
   "created_at": "2014-06-30T12:34:29.117Z",
   "updated_at": "2014-06-30T12:49:02.872Z"
@@ -149,7 +149,7 @@ order_id | | **[Required]** Order id.
 start_date | | **[Required]** Line item start date. Should be greater than today's date. Expected format: YYYY-MM-DD. e.g. 2015-05-28
 end_date | | **[Required]** Line item end date. Should be greater than 'start_date'. Expected format: YYYY-MM-DD. e.g. 2015-05-28
 paused | | True to pause order.
-business_unit_id | | **[Required]** Brand id.
+brand_id | | **[Required]** Brand id.
 
 ## Update line item
 
@@ -159,7 +159,7 @@ curl 'https://toro.collective-media.net/api/line_items/12' \
   -H 'Accept: application/json' \
   -H 'Content-type: application/json' \
   -H 'Authorization: Token token="your_api_token"' \
-  -d '{"id": 12, "name": "Update Test Line Item", order_id": 9, "start_date": "2014-07-01", "end_date":"2014-09-29", "paused": false, "business_unit_id": 107}'
+  -d '{"id": 12, "name": "Update Test Line Item", order_id": 9, "start_date": "2014-07-01", "end_date":"2014-09-29", "paused": false, "brand_id": 107}'
 ```
 
 > Response:
@@ -175,7 +175,7 @@ Content-Type: application/json; charset=utf-8
   "end_date": "2014-09-29",
   "paused": false,
   "paused_by_parent": false,
-  "business_unit_id": 107,
+  "brand_id": 107,
   "order_id": 9,
   "created_at": "2014-06-30T12:34:29.117Z",
   "updated_at": "2014-06-30T12:49:02.872Z"
@@ -191,4 +191,4 @@ order_id | | **[Required]** Order id.
 start_date | | Line item start date. Should be greater than today's date. Expected format: YYYY-MM-DD. e.g. 2015-05-28
 end_date | | Line item end date. Should be greater than 'start_date'. Expected format: YYYY-MM-DD. e.g. 2015-05-28
 paused | | True to pause order.
-business_unit_id | | Brand id.
+brand_id | | Brand id.
