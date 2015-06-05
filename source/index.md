@@ -13,6 +13,7 @@ includes:
   - http_response_codes
   - advertisers
   - brands
+  - business_objectives
   - creatives
   - lineitems
   - orders
