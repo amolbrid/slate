@@ -17,5 +17,6 @@ includes:
   - creatives
   - lineitems
   - orders
+  - lookups
 search: true
 ---
