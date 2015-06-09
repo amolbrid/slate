@@ -15,6 +15,7 @@ includes:
   - brands
   - business_objectives
   - creatives
+  - domain_list
   - lineitems
   - orders
   - lookups
