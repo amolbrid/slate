@@ -1,17 +1,5 @@
 # LineItems
 
-## Fields Guide
-Field | Description
---------- | -----------
-id | Line item id
-name | Line item name
-start_date | Line item start date
-end_date | Line item end date
-order_id | Order to which line item belongs
-brand_id | Brand id
-paused | True when line item is paused. Otherwise false
-paused_by_parent | True when line item is paused because order is paused.
-
 ## Get line items
 
 ```shell
@@ -192,3 +180,16 @@ start_date | | Line item start date. Should be greater than today's date. Expect
 end_date | | Line item end date. Should be greater than 'start_date'. Expected format: YYYY-MM-DD. e.g. 2015-05-28
 paused | | True to pause order.
 brand_id | | Brand id.
+
+
+## Fields Guide
+Field | Description
+--------- | -----------
+id | Line item id
+name | Line item name
+start_date | Line item start date
+end_date | Line item end date
+order_id | Order to which line item belongs
+brand_id | Brand id
+paused | True when line item is paused. Otherwise false
+paused_by_parent | True when line item is paused because order is paused.

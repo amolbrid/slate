@@ -1,15 +1,5 @@
 # Orders
 
-## Fields Guide
-Field | Description
---------- | -----------
-id | Order id
-name | Order name
-start_date | Order start date
-end_date | Order end date
-advertiser_id | Advertiser to which order belongs
-paused | True when order is paused. Otherwise false
-
 ## Get all orders
 
 ```shell
@@ -181,3 +171,14 @@ name |  | Order name. This should be unique within advertiser
 start_date | | Order start date. Should be greater than today's date. Expected format: YYYY-MM-DD. e.g. 2015-05-28
 end_date | | Order end date. Should be greater than 'start_date'. Expected format: YYYY-MM-DD. e.g. 2015-05-28
 paused | | True to pause order.
+
+
+## Fields Guide
+Field | Description
+--------- | -----------
+id | Order id
+name | Order name
+start_date | Order start date
+end_date | Order end date
+advertiser_id | Advertiser to which order belongs
+paused | True when order is paused. Otherwise false

@@ -1,23 +1,5 @@
 # Creatives
 
-## Fields Guide
-
-Field | Description
---------- | -----------
-id | Creative id
-name | Name of the creative.
-size | Creative size
-zone | Zone associated with creative
-advertiser_id | Advertiser associated with creative
-appnexus_id | Associated appnexus id
-iframe_url | creative url
-is_expired | True if creative is expired. otherwise false
-submitted_to_appnexus | true when creative is submitted to appnexus for auditing. Otherwise false.
-audit_status | Creative audit status. Possible values: "pending", "audited" and "rejected".
-audit_feedback | If creative is rejected, this will contain the reason  rejection.
-ssl_audit_status | Audit status of ssl creative
-tracking_pixels | Tracking pixel associated with creative
-
 ## Get all creatives
 
 
@@ -236,3 +218,22 @@ Field | Default | Description
 name | | Creative name. Should be unique.
 size | | Ad size.
 zone | | Zone associated with creative
+
+
+## Fields Guide
+
+Field | Description
+--------- | -----------
+id | Creative id
+name | Name of the creative.
+size | Creative size
+zone | Zone associated with creative
+advertiser_id | Advertiser associated with creative
+appnexus_id | Associated appnexus id
+iframe_url | creative url
+is_expired | True if creative is expired. otherwise false
+submitted_to_appnexus | true when creative is submitted to appnexus for auditing. Otherwise false.
+audit_status | Creative audit status. Possible values: "pending", "audited" and "rejected".
+audit_feedback | If creative is rejected, this will contain the reason  rejection.
+ssl_audit_status | Audit status of ssl creative
+tracking_pixels | Tracking pixel associated with creative
