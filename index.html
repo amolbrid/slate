@@ -931,68 +931,6 @@ You must replace `your_api_token` with your personal API token.
 
           <h1 id="creatives">Creatives</h1>
 
-<h2 id="fields-guide">Fields Guide</h2>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Creative id</td>
-</tr>
-<tr>
-<td>name</td>
-<td>Name of the creative.</td>
-</tr>
-<tr>
-<td>size</td>
-<td>Creative size</td>
-</tr>
-<tr>
-<td>zone</td>
-<td>Zone associated with creative</td>
-</tr>
-<tr>
-<td>advertiser_id</td>
-<td>Advertiser associated with creative</td>
-</tr>
-<tr>
-<td>appnexus_id</td>
-<td>Associated appnexus id</td>
-</tr>
-<tr>
-<td>iframe_url</td>
-<td>creative url</td>
-</tr>
-<tr>
-<td>is_expired</td>
-<td>True if creative is expired. otherwise false</td>
-</tr>
-<tr>
-<td>submitted_to_appnexus</td>
-<td>true when creative is submitted to appnexus for auditing. Otherwise false.</td>
-</tr>
-<tr>
-<td>audit_status</td>
-<td>Creative audit status. Possible values: &ldquo;pending&rdquo;, &ldquo;audited&rdquo; and &ldquo;rejected&rdquo;.</td>
-</tr>
-<tr>
-<td>audit_feedback</td>
-<td>If creative is rejected, this will contain the reason  rejection.</td>
-</tr>
-<tr>
-<td>ssl_audit_status</td>
-<td>Audit status of ssl creative</td>
-</tr>
-<tr>
-<td>tracking_pixels</td>
-<td>Tracking pixel associated with creative</td>
-</tr>
-</tbody></table>
-
 <h2 id="get-all-creatives">Get all creatives</h2>
 <pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/creatives?advertiser_id=2'</span> <span class="se">\</span>
   -X GET <span class="se">\</span>
@@ -1261,6 +1199,68 @@ You must replace `your_api_token` with your personal API token.
 <td>zone</td>
 <td></td>
 <td>Zone associated with creative</td>
+</tr>
+</tbody></table>
+
+<h2 id="fields-guide">Fields Guide</h2>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Creative id</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Name of the creative.</td>
+</tr>
+<tr>
+<td>size</td>
+<td>Creative size</td>
+</tr>
+<tr>
+<td>zone</td>
+<td>Zone associated with creative</td>
+</tr>
+<tr>
+<td>advertiser_id</td>
+<td>Advertiser associated with creative</td>
+</tr>
+<tr>
+<td>appnexus_id</td>
+<td>Associated appnexus id</td>
+</tr>
+<tr>
+<td>iframe_url</td>
+<td>creative url</td>
+</tr>
+<tr>
+<td>is_expired</td>
+<td>True if creative is expired. otherwise false</td>
+</tr>
+<tr>
+<td>submitted_to_appnexus</td>
+<td>true when creative is submitted to appnexus for auditing. Otherwise false.</td>
+</tr>
+<tr>
+<td>audit_status</td>
+<td>Creative audit status. Possible values: &ldquo;pending&rdquo;, &ldquo;audited&rdquo; and &ldquo;rejected&rdquo;.</td>
+</tr>
+<tr>
+<td>audit_feedback</td>
+<td>If creative is rejected, this will contain the reason  rejection.</td>
+</tr>
+<tr>
+<td>ssl_audit_status</td>
+<td>Audit status of ssl creative</td>
+</tr>
+<tr>
+<td>tracking_pixels</td>
+<td>Tracking pixel associated with creative</td>
 </tr>
 </tbody></table>
 
@@ -1582,48 +1582,6 @@ You must replace `your_api_token` with your personal API token.
 
           <h1 id="lineitems">LineItems</h1>
 
-<h2 id="fields-guide">Fields Guide</h2>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Line item id</td>
-</tr>
-<tr>
-<td>name</td>
-<td>Line item name</td>
-</tr>
-<tr>
-<td>start_date</td>
-<td>Line item start date</td>
-</tr>
-<tr>
-<td>end_date</td>
-<td>Line item end date</td>
-</tr>
-<tr>
-<td>order_id</td>
-<td>Order to which line item belongs</td>
-</tr>
-<tr>
-<td>brand_id</td>
-<td>Brand id</td>
-</tr>
-<tr>
-<td>paused</td>
-<td>True when line item is paused. Otherwise false</td>
-</tr>
-<tr>
-<td>paused_by_parent</td>
-<td>True when line item is paused because order is paused.</td>
-</tr>
-</tbody></table>
-
 <h2 id="get-line-items">Get line items</h2>
 <pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/line_items?order_id=9'</span> <span class="se">\</span>
   -X GET <span class="se">\</span>
@@ -1864,8 +1822,6 @@ You must replace `your_api_token` with your personal API token.
 </tr>
 </tbody></table>
 
-          <h1 id="orders">Orders</h1>
-
 <h2 id="fields-guide">Fields Guide</h2>
 
 <table><thead>
@@ -1876,29 +1832,39 @@ You must replace `your_api_token` with your personal API token.
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>Order id</td>
+<td>Line item id</td>
 </tr>
 <tr>
 <td>name</td>
-<td>Order name</td>
+<td>Line item name</td>
 </tr>
 <tr>
 <td>start_date</td>
-<td>Order start date</td>
+<td>Line item start date</td>
 </tr>
 <tr>
 <td>end_date</td>
-<td>Order end date</td>
+<td>Line item end date</td>
 </tr>
 <tr>
-<td>advertiser_id</td>
-<td>Advertiser to which order belongs</td>
+<td>order_id</td>
+<td>Order to which line item belongs</td>
+</tr>
+<tr>
+<td>brand_id</td>
+<td>Brand id</td>
 </tr>
 <tr>
 <td>paused</td>
-<td>True when order is paused. Otherwise false</td>
+<td>True when line item is paused. Otherwise false</td>
+</tr>
+<tr>
+<td>paused_by_parent</td>
+<td>True when line item is paused because order is paused.</td>
 </tr>
 </tbody></table>
+
+          <h1 id="orders">Orders</h1>
 
 <h2 id="get-all-orders">Get all orders</h2>
 <pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/orders?advertiser_id=2'</span> <span class="se">\</span>
@@ -2116,6 +2082,40 @@ You must replace `your_api_token` with your personal API token.
 <td>paused</td>
 <td></td>
 <td>True to pause order.</td>
+</tr>
+</tbody></table>
+
+<h2 id="fields-guide">Fields Guide</h2>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Order id</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Order name</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Order start date</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Order end date</td>
+</tr>
+<tr>
+<td>advertiser_id</td>
+<td>Advertiser to which order belongs</td>
+</tr>
+<tr>
+<td>paused</td>
+<td>True when order is paused. Otherwise false</td>
 </tr>
 </tbody></table>
 
