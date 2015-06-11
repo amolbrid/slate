@@ -11,6 +11,7 @@ includes:
   - introduction
   - how_to_get_api_token
   - http_response_codes
+  - ads
   - advertisers
   - brands
   - business_objectives
