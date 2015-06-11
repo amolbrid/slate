@@ -185,6 +185,979 @@ You must replace `your_api_token` with your personal API token.
 </tr>
 </tbody></table>
 
+          <h1 id="ads">Ads</h1>
+
+<h2 id="get-all-ads">Get all ads</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/ads?line_item_id=20'</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Retargeting Ad"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ad_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ad_type_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Retargeting"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pricing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPM"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-04"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-30"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"revenue_cpm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ordered_impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"include_unknown_zips"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"include_unknown_dmas"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"include_unknown_states"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"business_objective_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"retargeting_pixel_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10895</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domain_list_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domain_list_included"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seller_member_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"publisher_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"accept_nil_publisher"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"included_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook.com\nyahoo.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"excluded_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"targeted_zip_codes_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10001\n10002\n10003"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"targeted_dmas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">525</span><span class="p">,</span><span class="w">
+      </span><span class="mi">532</span><span class="p">,</span><span class="w">
+      </span><span class="mi">790</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"targeted_states"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"AK"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"AR"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"AZ"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CO"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"targeted_screens"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="mi">4</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"targeted_segments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"line_item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-03T23:15:28.904Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-10T16:42:29.104Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test AO"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ad_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ad_type_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Audience Optimization"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pricing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPM"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-06"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-07"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"revenue_cpm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ordered_impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"include_unknown_zips"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"include_unknown_dmas"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"include_unknown_states"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"business_objective_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"retargeting_pixel_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domain_list_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"domain_list_included"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seller_member_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"publisher_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"accept_nil_publisher"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"included_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"excluded_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"targeted_zip_codes_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"targeted_dmas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">525</span><span class="p">,</span><span class="w">
+      </span><span class="mi">532</span><span class="p">,</span><span class="w">
+      </span><span class="mi">662</span><span class="p">,</span><span class="w">
+      </span><span class="mi">790</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"targeted_states"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"targeted_screens"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"targeted_segments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"((55310 or 55311) or ((55312 or 57457) and 57456))"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"line_item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-05T16:36:12.234Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-08T13:42:40.582Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Get all ads for given advertiser or order or line item sorted by ad name.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET /api/ads?advertiser_id={advertiser_id}&amp;order_id={order_id}&amp;line_item_id={line_item_id}</code></p>
+
+<h3 id="query-parameters">Query parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>advertiser_id</td>
+<td>Advertiser id.</td>
+</tr>
+<tr>
+<td>order_id</td>
+<td>Order id.</td>
+</tr>
+<tr>
+<td>line_item_id</td>
+<td>Line item id.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-single-ad">Get single ad</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/ads/34?line_item_id=20'</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Retargeting Ad"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ad_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ad_type_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Retargeting"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"pricing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPM"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-04"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-30"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"revenue_cpm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ordered_impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"include_unknown_zips"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"include_unknown_dmas"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"include_unknown_states"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"business_objective_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"retargeting_pixel_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10895</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"domain_list_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"domain_list_included"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"seller_member_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"publisher_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"accept_nil_publisher"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"included_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook.com\nyahoo.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"excluded_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"targeted_zip_codes_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10001\n10002\n10003"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"targeted_dmas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">525</span><span class="p">,</span><span class="w">
+    </span><span class="mi">532</span><span class="p">,</span><span class="w">
+    </span><span class="mi">790</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"targeted_states"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"AK"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AZ"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CO"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"targeted_screens"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="mi">4</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"targeted_segments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"line_item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-03T23:15:28.904Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-10T16:42:29.104Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Get ad for given id.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET /api/ads/{id}?line_item_id={line_item_id}</code></p>
+
+<h3 id="query-parameters">Query parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>line_item_id</td>
+<td>Line item id.</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-ad">Create ad</h2>
+
+<blockquote>
+<p>Create &lsquo;create_ad&rsquo; file with following json:</p>
+</blockquote>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Api.Ad.1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ad_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-06"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-30"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"pricing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPM"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ordered_impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"revenue_cpm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"line_item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"business_objective_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"domain_list_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"domain_list_included"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"included_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"excluded_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"retargeting_pixel_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+
+  </span><span class="s2">"accept_nil_publisher"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"publisher_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"seller_member_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"include_unknown_dmas"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"include_unknown_states"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"include_unknown_zips"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"targeted_dmas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">525</span><span class="p">,</span><span class="w">
+    </span><span class="mi">532</span><span class="p">,</span><span class="w">
+    </span><span class="mi">662</span><span class="p">,</span><span class="w">
+    </span><span class="mi">790</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"targeted_states"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"AK"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AZ"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CA"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"targeted_zip_codes_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10001\n10002\n10003"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"targeted_screens"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="mi">4</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"targeted_segments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<blockquote>
+<p>Request:</p>
+</blockquote>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/ads/34?line_item_id=20'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
+  -d @create_ad
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">79</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Api.Ad.1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ad_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ad_type_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Audience Optimization"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"pricing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPM"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-06"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-30"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"revenue_cpm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ordered_impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"include_unknown_zips"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"include_unknown_dmas"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"include_unknown_states"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"business_objective_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"retargeting_pixel_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"domain_list_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"domain_list_included"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"seller_member_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"publisher_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"accept_nil_publisher"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"included_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"excluded_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"targeted_zip_codes_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10001\n10002\n10003"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"targeted_dmas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">525</span><span class="p">,</span><span class="w">
+    </span><span class="mi">532</span><span class="p">,</span><span class="w">
+    </span><span class="mi">662</span><span class="p">,</span><span class="w">
+    </span><span class="mi">790</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"targeted_states"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"AK"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AZ"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CA"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"targeted_screens"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="mi">4</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"targeted_segments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"line_item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-11T14:31:38.551Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-11T14:31:38.642Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<p>Creates ad</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">POST /api/ads</code></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td></td>
+<td><strong>[Required]</strong> Ad name.</td>
+</tr>
+<tr>
+<td>line_item_id</td>
+<td></td>
+<td><strong>[Required]</strong> Line item id.</td>
+</tr>
+<tr>
+<td>ad_type_id</td>
+<td></td>
+<td><strong>[Required]</strong> Ad type id. See <strong>Ad Type</strong> section below.</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td></td>
+<td><strong>[Required]</strong> Ad start date. Should be greater than today&rsquo;s date. Expected format: YYYY-MM-DD. e.g. 2015-05-28</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td></td>
+<td><strong>[Required]</strong> Ad end date. Should be greater than <code class="prettyprint">start_date</code>. Expected format: YYYY-MM-DD. e.g. 2015-05-28</td>
+</tr>
+<tr>
+<td>pricing</td>
+<td></td>
+<td><strong>[Required]</strong> Ad pricing. Valid values are CPM and CPA.</td>
+</tr>
+<tr>
+<td>ordered_impressions</td>
+<td></td>
+<td>Number of impressions desired. <strong>Required</strong> for CPM ad.</td>
+</tr>
+<tr>
+<td>revenue_cpm</td>
+<td></td>
+<td>Amount of revenue per 1000 impressions. Should not be more than 40. <strong>Required</strong> for CPM ad.</td>
+</tr>
+<tr>
+<td>budget</td>
+<td></td>
+<td>Amount to spend. <strong>Required</strong> for CPA ad. Should not be more than $1000 per day.</td>
+</tr>
+<tr>
+<td>paused</td>
+<td></td>
+<td>Set <code class="prettyprint">true</code> to create paused ad.</td>
+</tr>
+<tr>
+<td>business_objective_id</td>
+<td></td>
+<td>Business object id. <strong>Required</strong> for <em>Click Optimized/RON/Viewability</em> ad type.</td>
+</tr>
+<tr>
+<td>domain_list_id</td>
+<td></td>
+<td>Domain list id.</td>
+</tr>
+<tr>
+<td>domain_list_included</td>
+<td></td>
+<td>Set <code class="prettyprint">true</code> when domain list is included.</td>
+</tr>
+<tr>
+<td>included_domains_string</td>
+<td></td>
+<td>Comma separated list of domains to include.</td>
+</tr>
+<tr>
+<td>excluded_domains_string</td>
+<td></td>
+<td>Comma separated list of domains to exclude.</td>
+</tr>
+<tr>
+<td>retargeting_pixel_id</td>
+<td></td>
+<td>Retargeting pixel id. <strong>Required</strong> for <em>Retargeting</em> ad type.</td>
+</tr>
+<tr>
+<td>accept_nil_publisher</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>publisher_ids</td>
+<td></td>
+<td>Array of publisher ids.</td>
+</tr>
+<tr>
+<td>seller_member_ids</td>
+<td></td>
+<td>Array of seller member ids.</td>
+</tr>
+<tr>
+<td>include_unknow_dmas</td>
+<td></td>
+<td>Allow targeting on unknow dmas.</td>
+</tr>
+<tr>
+<td>include_unknow_states</td>
+<td></td>
+<td>Allow targeting on unknow states.</td>
+</tr>
+<tr>
+<td>include_unknown_zips</td>
+<td></td>
+<td>Allow targeting on unknow zips.</td>
+</tr>
+<tr>
+<td>targeted_dmas</td>
+<td></td>
+<td>Array of DMA codes.</td>
+</tr>
+<tr>
+<td>targeted_states</td>
+<td></td>
+<td>Array of state abbreviations.</td>
+</tr>
+<tr>
+<td>targeted_zip_codes_string</td>
+<td></td>
+<td>Comma or new line (\n) separated list of 5 digit zip codes.</td>
+</tr>
+<tr>
+<td>targeted_screens</td>
+<td></td>
+<td>Array of screen type ids. See <strong>Screen Types</strong> section below.</td>
+</tr>
+<tr>
+<td>targeted_segments</td>
+<td></td>
+<td>Targeted segments expression.</td>
+</tr>
+<tr>
+<td>margin_goal</td>
+<td></td>
+<td>Margin we&rsquo;d like to make on these impressions, an integer between 0 and 100</td>
+</tr>
+<tr>
+<td>add_strategy</td>
+<td></td>
+<td>Auto create strategy.</td>
+</tr>
+<tr>
+<td>add_creatives</td>
+<td></td>
+<td>Create creatives for given ad size.</td>
+</tr>
+<tr>
+<td>targeted_sizes</td>
+<td></td>
+<td>Comma separated list of ad sizes.</td>
+</tr>
+<tr>
+<td>assign_creatives</td>
+<td></td>
+<td>Set <code class="prettyprint">true</code> to assign creatives to strategy.</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-ad">Update ad</h2>
+
+<blockquote>
+<p>Create &#39;update_ad&rsquo; file with following json:</p>
+</blockquote>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">79</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-07-06"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ordered_impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"targeted_zip_codes_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10001,10002,10003,10004,10005"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"targeted_dmas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">525</span><span class="p">,</span><span class="w">
+    </span><span class="mi">532</span><span class="p">,</span><span class="w">
+    </span><span class="mi">662</span><span class="p">,</span><span class="w">
+    </span><span class="mi">790</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"targeted_states"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"AK"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AZ"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CA"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"targeted_screens"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="mi">4</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"line_item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Request:</p>
+</blockquote>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/ads/79'</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
+  -d @update_ad
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">Ok</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">79</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Api.Ad.1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ad_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ad_type_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Audience Optimization"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"pricing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPM"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-07-06"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-30"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"revenue_cpm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ordered_impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"include_unknown_zips"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"include_unknown_dmas"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"include_unknown_states"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"business_objective_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"retargeting_pixel_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"domain_list_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"domain_list_included"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"seller_member_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"publisher_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"accept_nil_publisher"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"included_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"excluded_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"targeted_zip_codes_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10001\n10002\n10003\n10004\n10005"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"targeted_dmas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">525</span><span class="p">,</span><span class="w">
+    </span><span class="mi">532</span><span class="p">,</span><span class="w">
+    </span><span class="mi">662</span><span class="p">,</span><span class="w">
+    </span><span class="mi">790</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"targeted_states"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"AK"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AZ"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CA"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"targeted_screens"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="mi">4</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"targeted_segments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"line_item_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-11T14:31:38.551Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-11T16:22:28.901Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Updates ad</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">PUT /api/ads/{ad_id}</code></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td></td>
+<td>Ad name.</td>
+</tr>
+<tr>
+<td>line_item_id</td>
+<td></td>
+<td><strong>[Required]</strong> Line item id.</td>
+</tr>
+<tr>
+<td>ad_type_id</td>
+<td></td>
+<td>Ad type id. Can be updated only if ad <code class="prettyprint">start_date</code> is in future. See <strong>Ad Type</strong> section below.</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td></td>
+<td>Ad start date. Should be greater than today&rsquo;s date. Expected format: YYYY-MM-DD. e.g. 2015-05-28</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td></td>
+<td>Ad end date. Should be greater than <code class="prettyprint">start_date</code>. Expected format: YYYY-MM-DD. e.g. 2015-05-28</td>
+</tr>
+<tr>
+<td>pricing</td>
+<td></td>
+<td>Ad pricing. Valid values are CPM and CPA.</td>
+</tr>
+<tr>
+<td>ordered_impressions</td>
+<td></td>
+<td>Number of impressions desired. <strong>Required</strong> for CPM ad.</td>
+</tr>
+<tr>
+<td>revenue_cpm</td>
+<td></td>
+<td>Amount of revenue per 1000 impressions. Should not be more than 40. <strong>Required</strong> for CPM ad.</td>
+</tr>
+<tr>
+<td>budget</td>
+<td></td>
+<td>Amount to spend. <strong>Required</strong> for CPA ad. Should not be more than $1000 per day.</td>
+</tr>
+<tr>
+<td>paused</td>
+<td></td>
+<td>Set <code class="prettyprint">true</code> to create paused ad.</td>
+</tr>
+<tr>
+<td>business_objective_id</td>
+<td></td>
+<td>Business object id. <strong>Required</strong> for <em>Click Optimized/RON/Viewability</em> ad type.</td>
+</tr>
+<tr>
+<td>domain_list_id</td>
+<td></td>
+<td>Domain list id.</td>
+</tr>
+<tr>
+<td>domain_list_included</td>
+<td></td>
+<td>Set <code class="prettyprint">true</code> when domain list is included.</td>
+</tr>
+<tr>
+<td>included_domains_string</td>
+<td></td>
+<td>Comma separated list of domains to include.</td>
+</tr>
+<tr>
+<td>excluded_domains_string</td>
+<td></td>
+<td>Comma separated list of domains to exclude.</td>
+</tr>
+<tr>
+<td>retargeting_pixel_id</td>
+<td></td>
+<td>Retargeting pixel id. <strong>Required</strong> for <em>Retargeting</em> ad type.</td>
+</tr>
+<tr>
+<td>accept_nil_publisher</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>publisher_ids</td>
+<td></td>
+<td>Array of publisher ids.</td>
+</tr>
+<tr>
+<td>seller_member_ids</td>
+<td></td>
+<td>Array of seller member ids.</td>
+</tr>
+<tr>
+<td>include_unknow_dmas</td>
+<td></td>
+<td>Allow targeting on unknown dmas.</td>
+</tr>
+<tr>
+<td>include_unknow_states</td>
+<td></td>
+<td>Allow targeting on unknown states.</td>
+</tr>
+<tr>
+<td>include_unknown_zips</td>
+<td></td>
+<td>Allow targeting on unknown zips.</td>
+</tr>
+<tr>
+<td>targeted_dmas</td>
+<td></td>
+<td>Array of DMA codes.</td>
+</tr>
+<tr>
+<td>targeted_states</td>
+<td></td>
+<td>Array of state abbreviations.</td>
+</tr>
+<tr>
+<td>targeted_zip_codes_string</td>
+<td></td>
+<td>Comma or new line (\n) separated list of 5 digit zip codes.</td>
+</tr>
+<tr>
+<td>targeted_screens</td>
+<td></td>
+<td>Array of screen type ids. See <strong>Screen Types</strong> section below.</td>
+</tr>
+<tr>
+<td>targeted_segments</td>
+<td></td>
+<td>Targeted segments expression.</td>
+</tr>
+</tbody></table>
+
+<h2 id="fields-guide">Fields Guide</h2>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Ad name.</td>
+</tr>
+<tr>
+<td>line_item_id</td>
+<td>Line item id.</td>
+</tr>
+<tr>
+<td>order_id</td>
+<td>Order id.</td>
+</tr>
+<tr>
+<td>ad_type_id</td>
+<td>Ad type id. See <strong>Ad Type</strong> section below.</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Ad start date. Format: YYYY-MM-DD. e.g. 2015-05-28</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Ad end date. Format: YYYY-MM-DD. e.g. 2015-05-28</td>
+</tr>
+<tr>
+<td>pricing</td>
+<td>Ad pricing. Valid values are CPM and CPA.</td>
+</tr>
+<tr>
+<td>ordered_impressions</td>
+<td>Number of impressions desired. <strong>Required</strong> for CPM ad.</td>
+</tr>
+<tr>
+<td>revenue_cpm</td>
+<td>Amount of revenue per 1000 impressions. Should not be more than 40. <strong>Required</strong> for CPM ad.</td>
+</tr>
+<tr>
+<td>budget</td>
+<td>Amount to spend. <strong>Required</strong> for CPA ad. Should not be more than $1000 per day.</td>
+</tr>
+<tr>
+<td>paused</td>
+<td><code class="prettyprint">true</code> when ad is paused.</td>
+</tr>
+<tr>
+<td>business_objective_id</td>
+<td>Business object id. <strong>Required</strong> for <em>Click Optimized/RON/Viewability</em> ad type.</td>
+</tr>
+<tr>
+<td>domain_list_id</td>
+<td>Domain list id.</td>
+</tr>
+<tr>
+<td>domain_list_included</td>
+<td><code class="prettyprint">true</code> when domain list is included.</td>
+</tr>
+<tr>
+<td>included_domains_string</td>
+<td>Comma separated list of domains to include.</td>
+</tr>
+<tr>
+<td>excluded_domains_string</td>
+<td>Comma separated list of domains to exclude.</td>
+</tr>
+<tr>
+<td>retargeting_pixel_id</td>
+<td>Retargeting pixel id for <em>Retargeting</em> ad type.</td>
+</tr>
+<tr>
+<td>accept_nil_publisher</td>
+<td></td>
+</tr>
+<tr>
+<td>publisher_ids</td>
+<td>Array of publisher ids.</td>
+</tr>
+<tr>
+<td>seller_member_ids</td>
+<td>Array of seller member ids.</td>
+</tr>
+<tr>
+<td>include_unknow_dmas</td>
+<td>Allow targeting on unknown dmas.</td>
+</tr>
+<tr>
+<td>include_unknow_states</td>
+<td>Allow targeting on unknown states.</td>
+</tr>
+<tr>
+<td>include_unknown_zips</td>
+<td>Allow targeting on unknown zips.</td>
+</tr>
+<tr>
+<td>targeted_dmas</td>
+<td>Array of DMA codes.</td>
+</tr>
+<tr>
+<td>targeted_states</td>
+<td>Array of state abbreviations.</td>
+</tr>
+<tr>
+<td>targeted_zip_codes_string</td>
+<td>Comma or new line (\n) separated list of 5 digit zip codes.</td>
+</tr>
+<tr>
+<td>targeted_screens</td>
+<td>Array of screen type ids. See <strong>Screen Types</strong> section below.</td>
+</tr>
+<tr>
+<td>targeted_segments</td>
+<td>Targeted segments expression.</td>
+</tr>
+</tbody></table>
+
+<h3 id="ad-types">Ad Types</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Audience Optimization</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Retargeting</td>
+</tr>
+<tr>
+<td>3</td>
+<td>RON</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Click Optimized</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Viewability</td>
+</tr>
+</tbody></table>
+
+<h3 id="screen-types">Screen Types</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Personal Computer</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Phone (Mobile Web)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Tablet</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Other / Unknown</td>
+</tr>
+</tbody></table>
+
           <h1 id="advertisers">Advertisers</h1>
 
 <h2 id="get-all-advertisers">Get all advertisers</h2>
