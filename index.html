@@ -2837,6 +2837,147 @@ You must replace `your_api_token` with your personal API token.
 </tr>
 </tbody></table>
 
+          <h1 id="lookups">Lookups</h1>
+
+<h2 id="get-dmas">Get DMAs</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/dmas'</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">662</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABILENE-SWEETWATER"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">525</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALBANY, GA"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">532</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALBANY-SCHENECTADY-TROY"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">790</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALBUQUERQUE-SANTA FE"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">644</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALEXANDRIA, LA"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">583</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALPENA"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre>
+
+<p>Get DMAs sorted by name</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET /api/dmas</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>DMA code</td>
+</tr>
+<tr>
+<td>name</td>
+<td>DMA name</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-states">Get States</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/states'</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alabama"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AK"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arizona"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AZ"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arkansas"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AR"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"California"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Colorado"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CO"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Connecticut"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CT"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delaware"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Get all US states sorted by name</p>
+
+<h3 id="request">Request</h3>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET /api/states</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>State name</td>
+</tr>
+<tr>
+<td>abbreviation</td>
+<td>State abbreviation</td>
+</tr>
+</tbody></table>
+
           <h1 id="orders">Orders</h1>
 
 <h2 id="get-all-orders">Get all orders</h2>
@@ -3092,10 +3233,10 @@ You must replace `your_api_token` with your personal API token.
 </tr>
 </tbody></table>
 
-          <h1 id="lookups">Lookups</h1>
+          <h1 id="strategies">Strategies</h1>
 
-<h2 id="get-dmas">Get DMAs</h2>
-<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/dmas'</span> <span class="se">\</span>
+<h2 id="get-all-strategies">Get all strategies</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/strategies?ad_id=2'</span> <span class="se">\</span>
   -X GET <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
@@ -3110,59 +3251,69 @@ You must replace `your_api_token` with your personal API token.
 
 <span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">662</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABILENE-SWEETWATER"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">525</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALBANY, GA"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">532</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALBANY-SCHENECTADY-TROY"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">790</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALBUQUERQUE-SANTA FE"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">644</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALEXANDRIA, LA"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">583</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALPENA"</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standard"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amp_kv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"standard"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"margin_goal"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_partition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"budget_partition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blackout_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0 Hours"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"frequency_ramp_duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.5 Hours"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"min_bid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"max_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"control_group"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ad_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-02T21:00:23.378Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-15T17:07:42.947Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"approved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No Approved Creatives.  Order expired.  "</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"targeted_creatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="mi">3</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-
 </span></code></pre>
 
-<p>Get DMAs sorted by name</p>
+<p>Get all strategies for given advertiser or order or line item or ad.</p>
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">GET /api/dmas</code></p>
+<p><code class="prettyprint">GET /api/strategies?advertiser_id={advertiser_id}&amp;order_id={order_id}&amp;line_item_id={line_item_id}&amp;ad_id={ad_id}</code></p>
 
-<h3 id="response">Response</h3>
+<h3 id="query-parameters">Query parameters</h3>
 
 <table><thead>
 <tr>
-<th>Field</th>
+<th>Parameter</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>code</td>
-<td>DMA code</td>
+<td>advertiser_id</td>
+<td>Advertiser id.</td>
 </tr>
 <tr>
-<td>name</td>
-<td>DMA name</td>
+<td>order_id</td>
+<td>Order id.</td>
+</tr>
+<tr>
+<td>line_item_id</td>
+<td>Line item id.</td>
+</tr>
+<tr>
+<td>ad_id</td>
+<td>Ad id.</td>
 </tr>
 </tbody></table>
 
-<h2 id="get-states">Get States</h2>
-<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/states'</span> <span class="se">\</span>
+<h2 id="get-single-strategy">Get single strategy</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/strategies/1'</span> <span class="se">\</span>
   -X GET <span class="se">\</span>
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
@@ -3175,47 +3326,293 @@ You must replace `your_api_token` with your personal API token.
 <pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 
-<span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alabama"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AK"</span><span class="w">
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standard"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amp_kv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"standard"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"margin_goal"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_partition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"budget_partition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"blackout_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0 Hours"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"frequency_ramp_duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.5 Hours"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"min_bid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"max_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"control_group"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ad_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-02T21:00:23.378Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-15T17:07:42.947Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"approved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No Approved Creatives.  Order expired.  "</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arizona"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AZ"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arkansas"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AR"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"California"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Colorado"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CO"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Connecticut"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CT"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delaware"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+  </span><span class="s2">"targeted_creatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="mi">3</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Get all US states sorted by name</p>
+<p>Get strategy by id.</p>
 
 <h3 id="request">Request</h3>
 
+<p><code class="prettyprint">GET /api/strategies/{strategy_id}</code></p>
+
+<h2 id="create-strategy">Create strategy</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/strategies'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span> <span class="se">\</span>
+  -d <span class="s1">'{"name":"Example.Strategy","amp_kv":"a","margin_goal":10,"user_partition":"100.0","budget_partition":"100.0","max_cost":"50","min_bid":"0.01","ramp_begin":"1","begin_step":"Days","ramp_end":"12","end_step":"Hours","paused":"false","ad_id": 2,"targeted_creatives":[1,2]}'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">59</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example.Strategy"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amp_kv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"margin_goal"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_partition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"budget_partition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"blackout_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12 Hours"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"frequency_ramp_duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Days"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"min_bid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"max_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"control_group"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ad_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-15T17:43:24.562Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-15T17:43:24.562Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"approved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No Approved Creatives.  Order expired.  "</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"targeted_creatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Creates strategy.</p>
+
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">GET /api/states</code></p>
+<p><code class="prettyprint">POST /api/strategies</code></p>
 
-<h3 id="response">Response</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ad_id</td>
+<td></td>
+<td><strong>[Required]</strong> Ad id.</td>
+</tr>
+<tr>
+<td>name</td>
+<td></td>
+<td><strong>[Required]</strong> Strategy name.</td>
+</tr>
+<tr>
+<td>amp_kv</td>
+<td></td>
+<td><strong>[Required]</strong> Short name to associate strategy with objects in AMP.</td>
+</tr>
+<tr>
+<td>margin_goal</td>
+<td></td>
+<td><strong>[Required]</strong> Desired margin on impressions bought by this strategy. Valid value between 1 and 100</td>
+</tr>
+<tr>
+<td>user_partition</td>
+<td></td>
+<td><strong>[Required]</strong> Percentage of users that should see this strategy.</td>
+</tr>
+<tr>
+<td>budget_partition</td>
+<td></td>
+<td><strong>[Required]</strong> Percentage of budget should be spent on this strategy.</td>
+</tr>
+<tr>
+<td>max_cost</td>
+<td></td>
+<td><strong>[Required]</strong> Maximum amount should be payed to this strategy. This number should be inclusive of any network / serving cost. Value should be greater then 0 and less than equal to 500.</td>
+</tr>
+<tr>
+<td>min_bid</td>
+<td></td>
+<td><strong>[Required]</strong> Minimum amount should be payed to show this strategy.</td>
+</tr>
+<tr>
+<td>ramp_begin</td>
+<td></td>
+<td><strong>[Required]</strong> The amount of time we should spend ramping back up to maximum weight on a user who has previously seen the associated Ad.</td>
+</tr>
+<tr>
+<td>begin_step</td>
+<td></td>
+<td><strong>[Required]</strong> Valid values: &lsquo;Days&rsquo; or &#39;Hours&rsquo;</td>
+</tr>
+<tr>
+<td>ramp_end</td>
+<td></td>
+<td><strong>[Required]</strong> Time that we should wait before showing user another Ad, if they have just seen one.</td>
+</tr>
+<tr>
+<td>end_step</td>
+<td></td>
+<td><strong>[Required]</strong> Valid values: &#39;Days&rsquo; or &#39;Hours&rsquo;</td>
+</tr>
+<tr>
+<td>paused</td>
+<td></td>
+<td>Set <code class="prettyprint">true</code> to create paused strategy.</td>
+</tr>
+<tr>
+<td>targeted_creatives</td>
+<td></td>
+<td>Array of creative ids.</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-strategy">Update strategy</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/strategies'</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span> <span class="se">\</span>
+  -d <span class="s1">'{"amp_kv":"ab","margin_goal":20,"targeted_creatives":[1,2]}'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">Ok</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">59</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example.Strategy"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amp_kv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ab"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"margin_goal"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_partition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"budget_partition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"blackout_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12 Hours"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"frequency_ramp_duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Days"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"min_bid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"max_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"control_group"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ad_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-15T17:43:24.562Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-15T17:43:24.562Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"approved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No Approved Creatives.  Order expired.  "</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"targeted_creatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Updates strategy.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">PUT /api/strategies/{strategy id}</code></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td></td>
+<td>Strategy name.</td>
+</tr>
+<tr>
+<td>amp_kv</td>
+<td></td>
+<td>Short name to associate strategy with objects in AMP.</td>
+</tr>
+<tr>
+<td>margin_goal</td>
+<td></td>
+<td>Desired margin on impressions bought by this strategy. Valid value between 1 and 100</td>
+</tr>
+<tr>
+<td>user_partition</td>
+<td></td>
+<td>Percentage of users that should see this strategy.</td>
+</tr>
+<tr>
+<td>budget_partition</td>
+<td></td>
+<td>Percentage of budget should be spent on this strategy.</td>
+</tr>
+<tr>
+<td>max_cost</td>
+<td></td>
+<td>Maximum amount should be payed to this strategy. This number should be inclusive of any network / serving cost. Value should be greater then 0 and less than equal to 500.</td>
+</tr>
+<tr>
+<td>min_bid</td>
+<td></td>
+<td>Minimum amount should be payed to show this strategy.</td>
+</tr>
+<tr>
+<td>ramp_begin</td>
+<td></td>
+<td>The amount of time we should spend ramping back up to maximum weight on a user who has previously seen the associated Ad.</td>
+</tr>
+<tr>
+<td>begin_step</td>
+<td></td>
+<td>Valid values: &#39;Days&rsquo; or &#39;Hours&rsquo;</td>
+</tr>
+<tr>
+<td>ramp_end</td>
+<td></td>
+<td>Time that we should wait before showing user another Ad, if they have just seen one.</td>
+</tr>
+<tr>
+<td>end_step</td>
+<td></td>
+<td>Valid values: &#39;Days&rsquo; or &#39;Hours&rsquo;</td>
+</tr>
+<tr>
+<td>paused</td>
+<td></td>
+<td>Set <code class="prettyprint">true</code> to create paused strategy.</td>
+</tr>
+<tr>
+<td>targeted_creatives</td>
+<td></td>
+<td>Array of creative ids.</td>
+</tr>
+</tbody></table>
+
+<h2 id="fields-map">Fields Map</h2>
 
 <table><thead>
 <tr>
@@ -3225,11 +3622,51 @@ You must replace `your_api_token` with your personal API token.
 </thead><tbody>
 <tr>
 <td>name</td>
-<td>State name</td>
+<td>Strategy name.</td>
 </tr>
 <tr>
-<td>abbreviation</td>
-<td>State abbreviation</td>
+<td>amp_kv</td>
+<td>Short name to associate strategy with objects in AMP.</td>
+</tr>
+<tr>
+<td>margin_goal</td>
+<td>Desired margin on impressions bought by this strategy. Valid value between 1 and 100</td>
+</tr>
+<tr>
+<td>user_partition</td>
+<td>Percentage of users that should see this strategy.</td>
+</tr>
+<tr>
+<td>budget_partition</td>
+<td>Percentage of budget should be spent on this strategy.</td>
+</tr>
+<tr>
+<td>max_cost</td>
+<td>Maximum amount should be payed to this strategy. This number should be inclusive of any network / serving cost. Value should be greater then 0 and less than equal to 500.</td>
+</tr>
+<tr>
+<td>min_bid</td>
+<td>Minimum amount should be payed to show this strategy.</td>
+</tr>
+<tr>
+<td>frequency_ramp_duration</td>
+<td>The amount of time we should spend ramping back up to maximum weight on a user who has previously seen the associated Ad.</td>
+</tr>
+<tr>
+<td>blackout_period</td>
+<td>Time that we should wait before showing user another Ad, if they have just seen one.</td>
+</tr>
+<tr>
+<td>paused</td>
+<td><code class="prettyprint">true</code> when strategy is paused.</td>
+</tr>
+<tr>
+<td>targeted_creatives</td>
+<td>Array of associated creative ids.</td>
+</tr>
+<tr>
+<td>control_group</td>
+<td>if <code class="prettyprint">true</code>, the user_partition and budget_partition associated with this strategy should be considered a control group</td>
 </tr>
 </tbody></table>
 
