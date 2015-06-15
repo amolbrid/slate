@@ -18,7 +18,9 @@ includes:
   - creatives
   - domain_list
   - lineitems
-  - orders
   - lookups
+  - orders
+  - strategies
+
 search: true
 ---
