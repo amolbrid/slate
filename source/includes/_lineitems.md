@@ -20,8 +20,6 @@ Content-Type: application/json; charset=utf-8
   {
     "id": 12,
     "name": "Test Line Item - 1",
-    "start_date": "2014-07-01",
-    "end_date": "2014-09-29",
     "paused": false,
     "paused_by_parent": false,
     "brand_id": 107,
@@ -32,8 +30,6 @@ Content-Type: application/json; charset=utf-8
   {
     "id": 158,
     "name": "Test Line Item - 2",
-    "start_date": "2015-01-14",
-    "end_date": "2015-01-31",
     "paused": false,
     "paused_by_parent": false,
     "brand_id": 107,
@@ -76,8 +72,6 @@ Content-Type: application/json; charset=utf-8
 {
   "id": 12,
   "name": "Test Line Item - 1",
-  "start_date": "2014-07-01",
-  "end_date": "2014-09-29",
   "paused": false,
   "paused_by_parent": false,
   "brand_id": 107,
@@ -101,7 +95,7 @@ curl 'https://toro.collective-media.net/api/line_items' \
   -H 'Accept: application/json' \
   -H 'Content-type: application/json' \
   -H 'Authorization: Token token="your_api_token"' \
-  -d '{"name": "Test Line Item", "order_id": 9, "start_date": "2014-07-01", "end_date":"2014-09-29", "paused": false, "brand_id": 107}'
+  -d '{"name": "Test Line Item", "order_id": 9, "paused": false, "brand_id": 107}'
 ```
 
 > Response:
@@ -113,8 +107,6 @@ Content-Type: application/json; charset=utf-8
 {
   "id": 12,
   "name": "Test Line Item",
-  "start_date": "2014-07-01",
-  "end_date": "2014-09-29",
   "paused": false,
   "paused_by_parent": false,
   "brand_id": 107,
@@ -134,8 +126,6 @@ Field | Default | Description
 --------- | ------- | -----------
 name |  | **[Required]** Line item name. This should be unique for order.
 order_id | | **[Required]** Order id.
-start_date | | **[Required]** Line item start date. Should be greater than today's date. Expected format: YYYY-MM-DD. e.g. 2015-05-28
-end_date | | **[Required]** Line item end date. Should be greater than 'start_date'. Expected format: YYYY-MM-DD. e.g. 2015-05-28
 paused | | True to pause order.
 brand_id | | **[Required]** Brand id.
 
@@ -147,7 +137,7 @@ curl 'https://toro.collective-media.net/api/line_items/12' \
   -H 'Accept: application/json' \
   -H 'Content-type: application/json' \
   -H 'Authorization: Token token="your_api_token"' \
-  -d '{"id": 12, "name": "Update Test Line Item", order_id": 9, "start_date": "2014-07-01", "end_date":"2014-09-29", "paused": false, "brand_id": 107}'
+  -d '{"id": 12, "name": "Update Test Line Item", order_id": 9, "paused": false, "brand_id": 107}'
 ```
 
 > Response:
@@ -159,8 +149,6 @@ Content-Type: application/json; charset=utf-8
 {
   "id": 12,
   "name": "Update Test Line Item",
-  "start_date": "2014-07-01",
-  "end_date": "2014-09-29",
   "paused": false,
   "paused_by_parent": false,
   "brand_id": 107,
@@ -176,8 +164,6 @@ Field | Default | Description
 --------- | ------- | -----------
 name |  | Line item name. This should be unique for order.
 order_id | | **[Required]** Order id.
-start_date | | Line item start date. Should be greater than today's date. Expected format: YYYY-MM-DD. e.g. 2015-05-28
-end_date | | Line item end date. Should be greater than 'start_date'. Expected format: YYYY-MM-DD. e.g. 2015-05-28
 paused | | True to pause order.
 brand_id | | Brand id.
 
@@ -187,8 +173,6 @@ Field | Description
 --------- | -----------
 id | Line item id
 name | Line item name
-start_date | Line item start date
-end_date | Line item end date
 order_id | Order to which line item belongs
 brand_id | Brand id
 paused | True when line item is paused. Otherwise false
