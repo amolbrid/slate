@@ -20,6 +20,7 @@ includes:
   - lineitems
   - lookups
   - orders
+  - segments
   - strategies
 
 search: true
