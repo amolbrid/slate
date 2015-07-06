@@ -23,6 +23,7 @@ Content-Type: application/json; charset=utf-8
     "ad_type_id": 2,
     "ad_type_name": "Retargeting",
     "pricing": "CPM",
+    "status": "Past",
     "paused": false,
     "paused_by_parent": false,
     "start_date": "2015-02-04",
@@ -76,6 +77,7 @@ Content-Type: application/json; charset=utf-8
     "ad_type_id": 1,
     "ad_type_name": "Audience Optimization",
     "pricing": "CPM",
+    "status": "Past",
     "paused": false,
     "paused_by_parent": false,
     "start_date": "2014-11-06",
@@ -155,6 +157,7 @@ Content-Type: application/json; charset=utf-8
   "ad_type_id": 2,
   "ad_type_name": "Retargeting",
   "pricing": "CPM",
+  "status": "Past",
   "paused": false,
   "paused_by_parent": false,
   "start_date": "2015-02-04",
@@ -294,6 +297,7 @@ Content-Type: application/json; charset=utf-8
   "name": "Api.Ad.1",
   "ad_type_id": 1,
   "ad_type_name": "Audience Optimization",
+  "status": "Pending",
   "pricing": "CPM",
   "paused": false,
   "paused_by_parent": false,
@@ -442,6 +446,7 @@ Content-Type: application/json; charset=utf-8
   "ad_type_id": 1,
   "ad_type_name": "Audience Optimization",
   "pricing": "CPM",
+  "status": "Pending",
   "paused": false,
   "paused_by_parent": false,
   "start_date": "2015-07-06",
@@ -540,6 +545,7 @@ ad_type_id | Ad type id. See **Ad Type** section below.
 start_date | Ad start date. Format: YYYY-MM-DD. e.g. 2015-05-28
 end_date | Ad end date. Format: YYYY-MM-DD. e.g. 2015-05-28
 pricing | Ad pricing. Valid values are CPM and CPA.
+status | **[Read only]** Current status of ad. See **Ad status** section below.
 ordered_impressions | Number of impressions desired. **Required** for CPM ad.
 revenue_cpm | Amount of revenue per 1000 impressions. Should not be more than 40. **Required** for CPM ad.
 budget | Amount to spend. **Required** for CPA ad. Should not be more than $1000 per day.
@@ -580,3 +586,11 @@ Id | Name
 2 | Phone (Mobile Web)
 3 | Tablet
 4 | Other / Unknown
+
+### Ad status
+Values | Description
+------ | -------
+Active | Ad is running. Start date is today or in past and end date is in future.
+Pending | Ad has not started yet. Start date is in future.
+Paused | Ad is paused by user.
+Past | Ad has ended. End date is in past.
