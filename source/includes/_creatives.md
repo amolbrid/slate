@@ -32,7 +32,12 @@ Content-Type: application/json; charset=utf-8
     "audit_status": "rejected",
     "ssl_audit_status": null,
     "audit_feedback": "Creative does not display properly",
+    "format": "url-js",
+    "media_url": "http://a.collective-media.net/adj/cm.proga/1.75;sz=728x90;tgt=1.75${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};",
+    "media_url_secure": "http://a.collective-media.net/adj/cm.proga/1.75;sz=728x90;tgt=1.75${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};",
     "iframe_url": "http://a.collective-media.net/adi/cm.proga/1.75;sz=728x90;tgt=1.75${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};",
+    "content": null,
+    "content_secure": null,
     "tracking_pixels": []
   },
   {
@@ -49,7 +54,12 @@ Content-Type: application/json; charset=utf-8
     "audit_status": "audited",
     "ssl_audit_status": null,
     "audit_feedback": "",
+    "format": 'url-js',
+    "media_url": "http://a.collective-media.net/adj/cm.proga/disney_dmx_cpa;sz=728x90;tgt=disney_dmx_cpa${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};",
+    "media_url_secure": "http://a.collective-media.net/adj/cm.proga/disney_dmx_cpa;sz=728x90;tgt=disney_dmx_cpa${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};",
     "iframe_url": "http://a.collective-media.net/adi/cm.proga/disney_dmx_cpa;sz=728x90;tgt=disney_dmx_cpa${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};",
+    "content": null,
+    "content_secure": null,
     "tracking_pixels": []
   }
 ]
@@ -99,7 +109,12 @@ Content-Type: application/json; charset=utf-8
   "audit_status": "audited",
   "ssl_audit_status": null,
   "audit_feedback": "",
+  "format": "url-js",
+  "media_url": "http://a.collective-media.net/adj/cm.proga/disney_dmx_cpa;sz=728x90;tgt=disney_dmx_cpa${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};",
+  "media_url_secure": "http://a.collective-media.net/adj/cm.proga/disney_dmx_cpa;sz=728x90;tgt=disney_dmx_cpa${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};",
   "iframe_url": "http://a.collective-media.net/adi/cm.proga/disney_dmx_cpa;sz=728x90;tgt=disney_dmx_cpa${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};",
+  "content": null,
+  "content_secure": null,
   "tracking_pixels": []
 
 }
@@ -120,7 +135,7 @@ curl 'https://toro.collective-media.net/api/creatives' \
   -H 'Accept: application/json' \
   -H 'Content-type: application/json' \
   -H 'Authorization: Token token="your_api_token"' \
-  -d '{"name":"Test creative", "size":["160x600"], "zone":"test.zone", "advertiser_id":2}'
+  -d '{"name":"Test creative", "size":["160x600"], "zone":"test.zone", "advertiser_id":2, format:"url-js", "media_url":"http://a.collective-media.net/adj/cm.proga/test.zone;sz=160x600;tgt=test.zone${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};"}'
 ```
 
 > Response:
@@ -144,7 +159,12 @@ Content-Type: application/json; charset=utf-8
     "audit_status": null,
     "ssl_audit_status": null,
     "audit_feedback": null,
+    "format": "url-js",
+    "media_url": "http://a.collective-media.net/adj/cm.proga/test.zone;sz=160x600;tgt=test.zone${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};",
+    "media_url_secure": null,
     "iframe_url": "http://a.collective-media.net/adi/cm.proga/test.zone;sz=160x600;tgt=test.zone${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};",
+    "content": null,
+    "content_secure": null,
     "tracking_pixels": []
   }
 ]
@@ -160,7 +180,9 @@ Field | Default | Description
 --------- | ------- | -----------
 name | | **[Required]** Creative name. Should be unique.
 size | | **[Required]** Array of ad sizes. Creatives are created for each ad size. So if there are two ad sizes, "160x600" and "300x250", two creatives will be created. One with ad size "160x600" and other with ad size "300x250".
-zone | | **[Required]** Zone associated with creative
+zone | | **[Required]** Zone associated with creative.
+format | | **[Required]** Creative format. See 'Field Guide' for more details.
+media_url | | URL of creative.
 advertiser_id | | **[Required]** Advertiser id
 tracking_pixel | | Array of tracking pixel associated with creative.
 
@@ -202,7 +224,12 @@ Content-Type: application/json; charset=utf-8
   "audit_status": null,
   "ssl_audit_status": null,
   "audit_feedback": null,
+  "format": "url-js",
+  "media_url": "http://a.collective-media.net/adj/cm.proga/test.zone;sz=160x600;tgt=test.zone${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};",
+  "media_url_secure": null,
   "iframe_url": "http://a.collective-media.net/adi/cm.proga/new.zone;sz=160x600;tgt=new.zone${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};",
+  "content": null,
+  "content_secure": null,
   "tracking_pixels": [ ]
 }
 ```
@@ -230,7 +257,12 @@ size | Creative size
 zone | Zone associated with creative
 advertiser_id | Advertiser associated with creative
 appnexus_id | Associated appnexus id
-iframe_url | creative url
+iframe_url | creative preview url
+format | Format of the creative. Valid values are: 'url-js', 'raw-js', 'iframe-html'
+media_url | The URL of the creative when 'format' is 'url-js'.
+media_url_secure | The URL of the secure (https) creative to be served on a secure ad call when 'format' is 'url-js'.
+content | Javascript or HTML content when 'format' is 'raw-js' or 'iframe-html'
+content_secure | Javascript or HTML content when 'format' is 'raw-js' or 'iframe-html' served on a secure ad call.
 is_expired | True if creative is expired. otherwise false
 submitted_to_appnexus | true when creative is submitted to appnexus for auditing. Otherwise false.
 audit_status | Creative audit status. Possible values: "pending", "audited" and "rejected".
