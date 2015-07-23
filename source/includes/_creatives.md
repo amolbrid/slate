@@ -54,7 +54,7 @@ Content-Type: application/json; charset=utf-8
     "audit_status": "audited",
     "ssl_audit_status": null,
     "audit_feedback": "",
-    "format": 'url-js',
+    "format": "url-js",
     "media_url": "http://a.collective-media.net/adj/cm.proga/disney_dmx_cpa;sz=728x90;tgt=disney_dmx_cpa${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};",
     "media_url_secure": "http://a.collective-media.net/adj/cm.proga/disney_dmx_cpa;sz=728x90;tgt=disney_dmx_cpa${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};",
     "iframe_url": "http://a.collective-media.net/adi/cm.proga/disney_dmx_cpa;sz=728x90;tgt=disney_dmx_cpa${STRATEGY_TGT};st_id=${STRATEGY_ID};auc_id=${AUCTION_ID};axi=${USER_ID};xcamp=${PUBLISHER_ID};xchan=${SELLER_MEMBER_ID};xurl=${REFERER_URL_ENC};click=${CLICK_URL};ord=${CACHEBUSTER};segs=${SEGMENT_TGT};",
