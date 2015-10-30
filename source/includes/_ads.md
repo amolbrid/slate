@@ -30,6 +30,7 @@ Content-Type: application/json; charset=utf-8
     "end_date": "2015-06-30",
     "revenue_cpm": "1.0",
     "ordered_impressions": 1000,
+    "clicks_shutoff_point": null,
     "include_unknown_zips": true,
     "include_unknown_dmas": false,
     "include_unknown_states": false,
@@ -84,6 +85,7 @@ Content-Type: application/json; charset=utf-8
     "end_date": "2014-11-07",
     "revenue_cpm": "1.0",
     "ordered_impressions": 1000,
+    "clicks_shutoff_point": null,
     "include_unknown_zips": false,
     "include_unknown_dmas": false,
     "include_unknown_states": false,
@@ -164,6 +166,7 @@ Content-Type: application/json; charset=utf-8
   "end_date": "2015-06-30",
   "revenue_cpm": "1.0",
   "ordered_impressions": 1000,
+  "clicks_shutoff_point": null,
   "include_unknown_zips": true,
   "include_unknown_dmas": false,
   "include_unknown_states": false,
@@ -305,6 +308,7 @@ Content-Type: application/json; charset=utf-8
   "end_date": "2015-11-30",
   "revenue_cpm": "1.0",
   "ordered_impressions": 1000,
+  "clicks_shutoff_point": null,
   "include_unknown_zips": false,
   "include_unknown_dmas": false,
   "include_unknown_states": false,
@@ -366,6 +370,7 @@ pricing | | **[Required]** Ad pricing. Valid values are CPM and CPA.
 ordered_impressions | | Number of impressions desired. **Required** for CPM ad.
 revenue_cpm | | Amount of revenue per 1000 impressions. Should not be more than 40. **Required** for CPM ad.
 budget | | Amount to spend. **Required** for CPA ad. Should not be more than $1000 per day.
+clicks_shutoff_point | | Maximum number of clicks desired for given campaign. Dorado will stop delivering ad once clicks shutoff point is reached. This value is allowed only for 'Clicked Optimized' ad type with 'CPM' pricing.
 paused | | Set `true` to create paused ad.
 business_objective_id | | Business object id. **Required** for _Click Optimized/RON/Viewability_ ad type.
 domain_list_id | | Domain list id.
@@ -453,6 +458,7 @@ Content-Type: application/json; charset=utf-8
   "end_date": "2015-11-30",
   "revenue_cpm": "1.0",
   "ordered_impressions": 10000,
+  "clicks_shutoff_point": null,
   "include_unknown_zips": false,
   "include_unknown_dmas": false,
   "include_unknown_states": false,
@@ -514,6 +520,7 @@ pricing | | Ad pricing. Valid values are CPM and CPA.
 ordered_impressions | | Number of impressions desired. **Required** for CPM ad.
 revenue_cpm | | Amount of revenue per 1000 impressions. Should not be more than 40. **Required** for CPM ad.
 budget | | Amount to spend. **Required** for CPA ad. Should not be more than $1000 per day.
+clicks_shutoff_point | | Maximum number of clicks desired for given campaign. Dorado will stop delivering ad once clicks shutoff point is reached. This value is allowed only for 'Clicked Optimized' ad type with 'CPM' pricing.
 paused | | Set `true` to create paused ad.
 business_objective_id | | Business object id. **Required** for _Click Optimized/RON/Viewability_ ad type.
 domain_list_id | | Domain list id.
@@ -549,6 +556,7 @@ status | **[Read only]** Current status of ad. See **Ad status** section below.
 ordered_impressions | Number of impressions desired. **Required** for CPM ad.
 revenue_cpm | Amount of revenue per 1000 impressions. Should not be more than 40. **Required** for CPM ad.
 budget | Amount to spend. **Required** for CPA ad. Should not be more than $1000 per day.
+clicks_shutoff_point | | Maximum number of clicks desired for given campaign. Dorado will stop delivering ad once clicks shutoff point is reached. This value is allowed only for 'Clicked Optimized' ad type with 'CPM' pricing.
 paused | `true` when ad is paused.
 business_objective_id | Business object id. **Required** for _Click Optimized/RON/Viewability_ ad type.
 domain_list_id | Domain list id.
