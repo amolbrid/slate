@@ -215,6 +215,7 @@ You must replace `your_api_token` with your personal API token.
     </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-30"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"revenue_cpm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ordered_impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clicks_shutoff_point"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"include_unknown_zips"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"include_unknown_dmas"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"include_unknown_states"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -269,6 +270,7 @@ You must replace `your_api_token` with your personal API token.
     </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-07"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"revenue_cpm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ordered_impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clicks_shutoff_point"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"include_unknown_zips"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"include_unknown_dmas"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"include_unknown_states"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -362,6 +364,7 @@ You must replace `your_api_token` with your personal API token.
   </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-30"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"revenue_cpm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"ordered_impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"clicks_shutoff_point"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"include_unknown_zips"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"include_unknown_dmas"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"include_unknown_states"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -511,6 +514,7 @@ You must replace `your_api_token` with your personal API token.
   </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-30"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"revenue_cpm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"ordered_impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"clicks_shutoff_point"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"include_unknown_zips"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"include_unknown_dmas"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"include_unknown_states"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -612,6 +616,11 @@ You must replace `your_api_token` with your personal API token.
 <td>budget</td>
 <td></td>
 <td>Amount to spend. <strong>Required</strong> for CPA ad. Should not be more than $1000 per day.</td>
+</tr>
+<tr>
+<td>clicks_shutoff_point</td>
+<td></td>
+<td>Maximum number of clicks desired for given campaign. Dorado will stop delivering ad once clicks shutoff point is reached. This value is allowed only for &#39;Clicked Optimized&rsquo; ad type with &#39;CPM&rsquo; pricing.</td>
 </tr>
 <tr>
 <td>paused</td>
@@ -792,6 +801,7 @@ You must replace `your_api_token` with your personal API token.
   </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-30"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"revenue_cpm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"ordered_impressions"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"clicks_shutoff_point"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"include_unknown_zips"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"include_unknown_dmas"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"include_unknown_states"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -892,6 +902,11 @@ You must replace `your_api_token` with your personal API token.
 <td>budget</td>
 <td></td>
 <td>Amount to spend. <strong>Required</strong> for CPA ad. Should not be more than $1000 per day.</td>
+</tr>
+<tr>
+<td>clicks_shutoff_point</td>
+<td></td>
+<td>Maximum number of clicks desired for given campaign. Dorado will stop delivering ad once clicks shutoff point is reached. This value is allowed only for &#39;Clicked Optimized&rsquo; ad type with &#39;CPM&rsquo; pricing.</td>
 </tr>
 <tr>
 <td>paused</td>
@@ -1036,6 +1051,10 @@ You must replace `your_api_token` with your personal API token.
 <tr>
 <td>budget</td>
 <td>Amount to spend. <strong>Required</strong> for CPA ad. Should not be more than $1000 per day.</td>
+</tr>
+<tr>
+<td>clicks_shutoff_point</td>
+<td></td>
 </tr>
 <tr>
 <td>paused</td>
