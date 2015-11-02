@@ -17,6 +17,7 @@ includes:
   - business_objectives
   - creatives
   - domain_list
+  - inventory_tiers
   - lineitems
   - lookups
   - orders
