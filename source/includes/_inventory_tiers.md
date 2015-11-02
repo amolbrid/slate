@@ -160,7 +160,7 @@ curl 'https://toro.collective-media.net/api/inventory_tiers' \
   -H 'Accept: application/json' \
   -H 'Content-type: application/json' \
   -H 'Authorization: Token token="your_api_token"' \
-  -d '{"name": "Test Inventory tier", "ad_type_ids": [2,3], "seller_member_ids": [1,2,3]}'
+  -d '{"name": "Test Inventory tier", "ad_type_ids": [2,3], "seller_member_ids": "1,2,3"}'
 ```
 
 > Response:
@@ -201,8 +201,8 @@ Creates inventory tier.
 Field | Description
 --------- | ------- | -----------
 name |  **[Required]** Inventory tier name. This should be unique.
-seller_member_ids | Seller member ids
-publisher_ids | Publisher ids
+seller_member_ids | Comma separated list of seller member ids
+publisher_ids | Comma separated list of publisher ids
 included_domains_string | Comma separated list of domains to include
 excluded_domains_string | Comma separated list of domains to exclude
 ad_type_ids | Ad type ids
@@ -256,8 +256,8 @@ Updates order.
 Field | Description
 --------- | ------- | -----------
 name | **[Required]** Inventory tier name. This should be unique.
-seller_member_ids | Seller member ids
-publisher_ids | Publisher ids
+seller_member_ids | Comma separated list of seller member ids
+publisher_ids | Comma separated list of publisher ids
 included_domains_string | Comma separated list of domains to include
 excluded_domains_string | Comma separated list of domains to exclude
 ad_type_ids | Ad type ids
@@ -269,8 +269,8 @@ Field | Type |  Description
 --------- | ----------- | --------
 id | Number | Inventory tier id
 name | String | Inventory tier name.
-seller_member_ids | Array | Seller member ids
-publisher_ids | Array | Publisher ids
+seller_member_ids | String | Comma separated list of seller member ids
+publisher_ids | String | Comma separated list of publisher ids
 included_domains_string | String | Comma separated list of domains to include
 excluded_domains_string | String | Comma separated list of domains to exclude
 ad_type_ids | Array | Ad type ids
