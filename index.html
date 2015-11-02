@@ -2816,7 +2816,7 @@ You must replace `your_api_token` with your personal API token.
   -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'Authorization: Token token="your_api_token"'</span> <span class="se">\</span>
-  -d <span class="s1">'{"name": "Test Inventory tier", "ad_type_ids": [2,3], "seller_member_ids": [1,2,3]}'</span>
+  -d <span class="s1">'{"name": "Test Inventory tier", "ad_type_ids": [2,3], "seller_member_ids": "1,2,3"}'</span>
 </code></pre>
 
 <blockquote>
@@ -2866,11 +2866,11 @@ You must replace `your_api_token` with your personal API token.
 </tr>
 <tr>
 <td>seller_member_ids</td>
-<td>Seller member ids</td>
+<td>Comma separated list of seller member ids</td>
 </tr>
 <tr>
 <td>publisher_ids</td>
-<td>Publisher ids</td>
+<td>Comma separated list of publisher ids</td>
 </tr>
 <tr>
 <td>included_domains_string</td>
@@ -2942,11 +2942,11 @@ You must replace `your_api_token` with your personal API token.
 </tr>
 <tr>
 <td>seller_member_ids</td>
-<td>Seller member ids</td>
+<td>Comma separated list of seller member ids</td>
 </tr>
 <tr>
 <td>publisher_ids</td>
-<td>Publisher ids</td>
+<td>Comma separated list of publisher ids</td>
 </tr>
 <tr>
 <td>included_domains_string</td>
@@ -2983,13 +2983,13 @@ You must replace `your_api_token` with your personal API token.
 </tr>
 <tr>
 <td>seller_member_ids</td>
-<td>Array</td>
-<td>Seller member ids</td>
+<td>String</td>
+<td>Comma separated list of seller member ids</td>
 </tr>
 <tr>
 <td>publisher_ids</td>
-<td>Array</td>
-<td>Publisher ids</td>
+<td>String</td>
+<td>Comma separated list of publisher ids</td>
 </tr>
 <tr>
 <td>included_domains_string</td>
