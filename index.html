@@ -2662,6 +2662,362 @@ You must replace `your_api_token` with your personal API token.
 </tr>
 </tbody></table>
 
+          <h1 id="inventory-tier">Inventory Tier</h1>
+
+<h2 id="get-all-inventory-tiers">Get all inventory tiers</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/inventory_tiers'</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Click Performance (Gold Inventory)"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seller_member_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"publisher_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"included_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"excluded_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ad_type_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">4</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-14T18:16:03.656Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-01T18:02:54.448Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super Premium"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seller_member_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="mi">5</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"publisher_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="mi">2</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"included_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"excluded_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ad_type_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-08T20:38:02.443Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-08T20:38:11.988Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Viewability Performance (Gold Inventory)"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seller_member_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"publisher_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"included_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"excluded_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ad_type_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">5</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-20T15:07:53.784Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-28T17:34:48.632Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Whitelist"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seller_member_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"publisher_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"included_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"excluded_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ad_type_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="mi">4</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-03T14:46:23.232Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-28T20:07:35.236Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Get all inventory tiers available in system.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET /api/inventory_tiers</code></p>
+
+<h2 id="get-inventory-tier">Get inventory tier</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/inventory_tiers/1'</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Whitelist"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"seller_member_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"publisher_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"included_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"excluded_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ad_type_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="mi">4</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-03T14:46:23.232Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-28T20:07:35.236Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Get inventory_tier for given id.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET /api/inventory_tiers/{inventory_tier_id}</code></p>
+
+<h2 id="create-inventory-tier">Create inventory tier</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/inventory_tiers'</span> <span class="se">\</span>
+  -X POST <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span> <span class="se">\</span>
+  -d <span class="s1">'{"name": "Test Inventory tier", "ad_type_ids": [2,3], "seller_member_ids": [1,2,3]}'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Inventory tier"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"seller_member_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="mi">3</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"publisher_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"included_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"excluded_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ad_type_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="mi">3</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-03T14:46:23.232Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-28T20:07:35.236Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Creates inventory tier.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">POST /api/inventory_tiers</code></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td><strong>[Required]</strong> Inventory tier name. This should be unique.</td>
+</tr>
+<tr>
+<td>seller_member_ids</td>
+<td>Seller member ids</td>
+</tr>
+<tr>
+<td>publisher_ids</td>
+<td>Publisher ids</td>
+</tr>
+<tr>
+<td>included_domains_string</td>
+<td>Comma separated list of domains to include</td>
+</tr>
+<tr>
+<td>excluded_domains_string</td>
+<td>Comma separated list of domains to exclude</td>
+</tr>
+<tr>
+<td>ad_type_ids</td>
+<td>Ad type ids</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-inventory-tier">Update inventory tier</h2>
+<pre><code class="highlight shell">curl <span class="s1">'https://toro.collective-media.net/api/inventory_tiers/2'</span> <span class="se">\</span>
+  -X PUT <span class="se">\</span>
+  -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Token token="your_api_token"'</span> <span class="se">\</span>
+  -d <span class="s1">'{"included_domains_string"="google.com, facebook.com, collective.com"}'</span>
+</code></pre>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre><code class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Inventory tier"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"seller_member_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="mi">3</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"publisher_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"included_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google.com, facebook.com, collective.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"excluded_domains_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ad_type_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="mi">3</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-03T14:46:23.232Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-28T20:07:35.236Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Updates order.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">PUT /api/inventory_tiers/{inventory_tier_id}</code></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td><strong>[Required]</strong> Inventory tier name. This should be unique.</td>
+</tr>
+<tr>
+<td>seller_member_ids</td>
+<td>Seller member ids</td>
+</tr>
+<tr>
+<td>publisher_ids</td>
+<td>Publisher ids</td>
+</tr>
+<tr>
+<td>included_domains_string</td>
+<td>Comma separated list of domains to include</td>
+</tr>
+<tr>
+<td>excluded_domains_string</td>
+<td>Comma separated list of domains to exclude</td>
+</tr>
+<tr>
+<td>ad_type_ids</td>
+<td>Ad type ids</td>
+</tr>
+</tbody></table>
+
+<h2 id="fields-guide">Fields Guide</h2>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Number</td>
+<td>Inventory tier id</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Inventory tier name.</td>
+</tr>
+<tr>
+<td>seller_member_ids</td>
+<td>Array</td>
+<td>Seller member ids</td>
+</tr>
+<tr>
+<td>publisher_ids</td>
+<td>Array</td>
+<td>Publisher ids</td>
+</tr>
+<tr>
+<td>included_domains_string</td>
+<td>String</td>
+<td>Comma separated list of domains to include</td>
+</tr>
+<tr>
+<td>excluded_domains_string</td>
+<td>String</td>
+<td>Comma separated list of domains to exclude</td>
+</tr>
+<tr>
+<td>ad_type_ids</td>
+<td>Array</td>
+<td>Ad type ids</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>DateTime</td>
+<td>Date and time when inventory tier was created</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>DateTime</td>
+<td>Date and time when inventory tier was last updated</td>
+</tr>
+</tbody></table>
+
           <h1 id="lineitems">LineItems</h1>
 
 <h2 id="get-line-items">Get line items</h2>
