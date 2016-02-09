@@ -24,8 +24,10 @@ Content-Type: application/json; charset=utf-8
     "margin_goal": 11,
     "user_partition": "100.0",
     "budget_partition": "100.0",
-    "blackout_period": "0 Hours",
-    "frequency_ramp_duration": "0.5 Hours",
+    "ramp_end": "0",
+    "end_step": Hours",
+    "ramp_begin": "0.5",
+    "begin_step": "Hours",
     "min_bid": "0.01",
     "max_cost": "50.0",
     "paused": false,
@@ -85,8 +87,10 @@ Content-Type: application/json; charset=utf-8
   "margin_goal": 11,
   "user_partition": "100.0",
   "budget_partition": "100.0",
-  "blackout_period": "0 Hours",
-  "frequency_ramp_duration": "0.5 Hours",
+  "ramp_end": "0",
+  "end_step": Hours",
+  "ramp_begin": "0.5",
+  "begin_step": "Hours",
   "min_bid": "0.01",
   "max_cost": "50.0",
   "paused": false,
@@ -137,8 +141,10 @@ Content-Type: application/json; charset=utf-8
   "margin_goal": 10,
   "user_partition": "100.0",
   "budget_partition": "100.0",
-  "blackout_period": "12 Hours",
-  "frequency_ramp_duration": "1 Days",
+  "ramp_end": "12",
+  "end_step": Hours",
+  "ramp_begin": "1",
+  "begin_step": "Day",
   "min_bid": "0.01",
   "max_cost": "50.0",
   "paused": false,
@@ -205,8 +211,10 @@ Content-Type: application/json; charset=utf-8
   "margin_goal": 20,
   "user_partition": "100.0",
   "budget_partition": "100.0",
-  "blackout_period": "12 Hours",
-  "frequency_ramp_duration": "1 Days",
+  "ramp_end": "12",
+  "end_step": Hours",
+  "ramp_begin": "1",
+  "begin_step": "Days",
   "min_bid": "0.01",
   "max_cost": "50.0",
   "paused": false,
@@ -259,8 +267,10 @@ user_partition | Percentage of users that should see this strategy.
 budget_partition | Percentage of budget should be spent on this strategy.
 max_cost | Maximum amount should be payed to this strategy. This number should be inclusive of any network / serving cost. Value should be greater then 0 and less than equal to 500.
 min_bid | Minimum amount should be payed to show this strategy.
-frequency_ramp_duration | The amount of time we should spend ramping back up to maximum weight on a user who has previously seen the associated Ad.
-blackout_period | Time that we should wait before showing user another Ad, if they have just seen one.
+ramp_begin | The amount of time we should spend ramping back up to maximum weight on a user who has previously seen the associated Ad.
+begin_step | Valid values: 'Days' or 'Hours'
+ramp_end | Time that we should wait before showing user another Ad, if they have just seen one.
+end_step | Valid values: 'Days' or 'Hours'
 paused | `true` when strategy is paused.
 targeted_creatives | Array of associated creative ids.
 control_group | if `true`, the user_partition and budget_partition associated with this strategy should be considered a control group
