@@ -30,6 +30,7 @@ Content-Type: application/json; charset=utf-8
     "begin_step": "Hours",
     "min_bid": "0.01",
     "max_cost": "50.0",
+    "over_pacing_factor": 10,
     "paused": false,
     "paused_by_parent": false,
     "control_group": false,
@@ -93,6 +94,7 @@ Content-Type: application/json; charset=utf-8
   "begin_step": "Hours",
   "min_bid": "0.01",
   "max_cost": "50.0",
+  "over_pacing_factor": 10,
   "paused": false,
   "paused_by_parent": false,
   "control_group": false,
@@ -147,6 +149,7 @@ Content-Type: application/json; charset=utf-8
   "begin_step": "Day",
   "min_bid": "0.01",
   "max_cost": "50.0",
+  "over_pacing_factor": 10,
   "paused": false,
   "paused_by_parent": false,
   "control_group": false,
@@ -185,6 +188,7 @@ begin_step | | **[Required]** Valid values: 'Days' or 'Hours'
 ramp_end | | **[Required]** Time that we should wait before showing user another Ad, if they have just seen one.
 end_step | | **[Required]** Valid values: 'Days' or 'Hours'
 paused | | Set `true` to create paused strategy.
+over_pacing_factor | | Over pacing factor.
 targeted_creatives | | Array of creative ids.
 
 ## Update strategy
@@ -217,6 +221,7 @@ Content-Type: application/json; charset=utf-8
   "begin_step": "Days",
   "min_bid": "0.01",
   "max_cost": "50.0",
+  "over_pacing_factor": 10,
   "paused": false,
   "paused_by_parent": false,
   "control_group": false,
@@ -254,6 +259,7 @@ begin_step | | Valid values: 'Days' or 'Hours'
 ramp_end | | Time that we should wait before showing user another Ad, if they have just seen one.
 end_step | | Valid values: 'Days' or 'Hours'
 paused | | Set `true` to create paused strategy.
+over_pacing_factor | | Over pacing factor.
 targeted_creatives | | Array of creative ids.
 
 ## Fields Map
@@ -274,3 +280,4 @@ end_step | Valid values: 'Days' or 'Hours'
 paused | `true` when strategy is paused.
 targeted_creatives | Array of associated creative ids.
 control_group | if `true`, the user_partition and budget_partition associated with this strategy should be considered a control group
+over_pacing_factor | Over pacing factor.
