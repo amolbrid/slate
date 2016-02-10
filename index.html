@@ -3998,6 +3998,7 @@ You must replace `your_api_token` with your personal API token.
     </span><span class="nt">"begin_step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hours"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"min_bid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"max_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"over_pacing_factor"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="nt">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"control_group"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -4076,6 +4077,7 @@ You must replace `your_api_token` with your personal API token.
   </span><span class="nt">"begin_step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hours"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_bid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"over_pacing_factor"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"control_group"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -4128,6 +4130,7 @@ You must replace `your_api_token` with your personal API token.
   </span><span class="nt">"begin_step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Day"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_bid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"over_pacing_factor"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"control_group"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -4224,6 +4227,11 @@ You must replace `your_api_token` with your personal API token.
 <td>Set <code class="prettyprint">true</code> to create paused strategy.</td>
 </tr>
 <tr>
+<td>over_pacing_factor</td>
+<td></td>
+<td>Over pacing factor.</td>
+</tr>
+<tr>
 <td>targeted_creatives</td>
 <td></td>
 <td>Array of creative ids.</td>
@@ -4258,6 +4266,7 @@ You must replace `your_api_token` with your personal API token.
   </span><span class="nt">"begin_step"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Days"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_bid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"over_pacing_factor"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"paused"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"paused_by_parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"control_group"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -4349,6 +4358,11 @@ You must replace `your_api_token` with your personal API token.
 <td>Set <code class="prettyprint">true</code> to create paused strategy.</td>
 </tr>
 <tr>
+<td>over_pacing_factor</td>
+<td></td>
+<td>Over pacing factor.</td>
+</tr>
+<tr>
 <td>targeted_creatives</td>
 <td></td>
 <td>Array of creative ids.</td>
@@ -4418,6 +4432,10 @@ You must replace `your_api_token` with your personal API token.
 <tr>
 <td>control_group</td>
 <td>if <code class="prettyprint">true</code>, the user_partition and budget_partition associated with this strategy should be considered a control group</td>
+</tr>
+<tr>
+<td>over_pacing_factor</td>
+<td>Over pacing factor.</td>
 </tr>
 </tbody></table>
 
